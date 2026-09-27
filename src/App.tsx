@@ -13,7 +13,11 @@ const ADMIN_EMAIL = 'khushihomes3@gmail.com';
 const ROOMS = ['Living Room','Drawing Room','Kitchen','Bedroom','Pooja Room','Bathroom'];
 const DEVICE_TYPES = ['Light','Fan','AC','TV','Smart Plug','Camera','Other'] as const;
 type DeviceType = typeof DEVICE_TYPES[number];
-type Device = {id:number;name:string;room:string;type:DeviceType;icon:string;on:boolean};
+type ConnectionType = 'Wi-Fi'|'Bluetooth'|'4G'|'5G';
+type ChannelType = 'Light'|'Fan'|'AC'|'TV'|'Smart Plug'|'Other';
+type HardwareChannel = {id:number;name:string;room:string;type:ChannelType;on:boolean};
+type HardwareController = {id:number;name:string;connectionType:ConnectionType;deviceId:string;channels:HardwareChannel[]};
+type Device = {id:number;name:string;room:string;type:DeviceType;icon:string;on:boolean;connectionType?:ConnectionType;deviceId?:string};
 type Plan = {id?:number;code:string;name:string;months:number;amount:number;offer:number;payment_amount:number;active:boolean};
 type Enquiry = {id:number;name:string;phone:string;address:string|null;requirement:string;enquiry_type:string;status:string;created_at:string};
 type Profile = {name:string;photo:string;mobile:string};
@@ -30,15 +34,18 @@ function App() {
   const [showLogin,setShowLogin]=useState(false);
   const [authMode,setAuthMode]=useState<'login'|'signup'>('login');
   const [identifier,setIdentifier]=useState(''); const [password,setPassword]=useState(''); const [authMessage,setAuthMessage]=useState(''); const [authError,setAuthError]=useState('');
-  const [page,setPage]=useState<'home'|'devices'|'rooms'|'schedules'|'settings'|'support'|'subscriptions'|'admin'|'notifications'|'profile'|'camera'|'robot'|'security'|'parking'|'payment-history'|'add-device'|'device-type'|'add-device-form'|'device-success'>('home');
+  const [page,setPage]=useState<'home'|'devices'|'rooms'|'schedules'|'settings'|'support'|'subscriptions'|'admin'|'notifications'|'profile'|'camera'|'robot'|'security'|'parking'|'payment-history'|'add-device'|'device-type'|'add-device-form'|'device-success'|'hardware-add'|'hardware-view'>('home');
   const [roomPage,setRoomPage]=useState<string|null>(null);
   const [devices,setDevices]=useState<Device[]>(defaultDevices);
+  const [hardwareControllers,setHardwareControllers]=useState<HardwareController[]>([]);
+  const [hardwareForm,setHardwareForm]=useState({name:'',connectionType:'Wi-Fi' as ConnectionType,deviceId:'',channelCount:4});
+  const [selectedHardwareId,setSelectedHardwareId]=useState<number|null>(null);
   const [plans,setPlans]=useState<Plan[]>([]); const [subscription,setSubscription]=useState<{plan_code:string;expires_at:string}|null>(null);
   const [notifications,setNotifications]=useState<string[]>([]); const [admin,setAdmin]=useState(false); const [enquiries,setEnquiries]=useState<Enquiry[]>([]); const [whatsapp,setWhatsapp]=useState('8431338440'); const [appMessage,setAppMessage]=useState('');
   const [aiInput,setAiInput]=useState(''); const [aiBusy,setAiBusy]=useState(false); const [aiMessages,setAiMessages]=useState<{role:'user'|'assistant';text:string}[]>([{role:'assistant',text:'Hi! I am Khushi AI. Ask me about KHUSHI HOMES Smart Home, demo or quotation.'}]);
   const [form,setForm]=useState({name:'',phone:'',address:'',requirement:'',type:'quotation'});
   const [editingPlan,setEditingPlan]=useState<string|null>(null); const [planDraft,setPlanDraft]=useState<Plan|null>(null);
-  const [newDevice,setNewDevice]=useState({name:'',room:'Living Room',type:'Light' as DeviceType,icon:'Lightbulb'});
+  const [newDevice,setNewDevice]=useState({name:'',room:'Living Room',type:'Light' as DeviceType,icon:'Lightbulb',connectionType:'Wi-Fi' as ConnectionType,deviceId:''});
   const [editingDevice,setEditingDevice]=useState<number|null>(null); const [editName,setEditName]=useState('');
   const [profile,setProfile]=useState<Profile>({name:'',photo:'',mobile:''}); const [energyKwh,setEnergyKwh]=useState(1632);
   const [schedules,setSchedules]=useState<Schedule[]>([]); const [scheduleForm,setScheduleForm]=useState({deviceId:1,time:'08:00',action:'ON' as 'ON'|'OFF'});
@@ -51,8 +58,8 @@ function App() {
   const directAppEntry=window.location.pathname.endsWith('/app')||new URLSearchParams(window.location.search).get('entry')==='1';
 
   useEffect(()=>{const unsub=onAuthStateChanged(auth,setSession);return()=>unsub();},[]);
-  useEffect(()=>{if(!session)return;loadPlans();loadProfile();try{const d=JSON.parse(localStorage.getItem('khushi-data-'+session.uid)||'{}');if(d.devices)setDevices(d.devices);if(d.schedules)setSchedules(d.schedules);if(d.profile)setProfile({...{name:'',photo:'',mobile:''},...d.profile});if(typeof d.notificationsOn==='boolean')setNotificationsOn(d.notificationsOn);if(typeof d.securityOn==='boolean')setSecurityOn(d.securityOn);if(typeof d.parkingOn==='boolean')setParkingOn(d.parkingOn);if(typeof d.cameraSetup==='boolean')setCameraSetup(d.cameraSetup);if(d.cameraConfig)setCameraConfig({...{name:'',host:'',rtsp:'',onvif:''},...d.cameraConfig});if(Number.isFinite(d.energyKwh))setEnergyKwh(d.energyKwh);if(Array.isArray(d.paymentHistory))setPaymentHistory(d.paymentHistory);}catch{setProfile({name:String(session.user_metadata?.name||''),photo:'',mobile:session.phone||''});}},[session]);
-  useEffect(()=>{if(!session)return;localStorage.setItem('khushi-data-'+session.uid,JSON.stringify({devices,schedules,profile,notificationsOn,securityOn,parkingOn,cameraSetup,cameraConfig,energyKwh,paymentHistory}));},[session,devices,schedules,profile,notificationsOn,securityOn,parkingOn,cameraSetup,cameraConfig,energyKwh,paymentHistory]);
+  useEffect(()=>{if(!session)return;loadPlans();loadProfile();try{const d=JSON.parse(localStorage.getItem('khushi-data-'+session.uid)||'{}');if(d.devices)setDevices(d.devices);if(Array.isArray(d.hardwareControllers))setHardwareControllers(d.hardwareControllers);if(d.schedules)setSchedules(d.schedules);if(d.profile)setProfile({...{name:'',photo:'',mobile:''},...d.profile});if(typeof d.notificationsOn==='boolean')setNotificationsOn(d.notificationsOn);if(typeof d.securityOn==='boolean')setSecurityOn(d.securityOn);if(typeof d.parkingOn==='boolean')setParkingOn(d.parkingOn);if(typeof d.cameraSetup==='boolean')setCameraSetup(d.cameraSetup);if(d.cameraConfig)setCameraConfig({...{name:'',host:'',rtsp:'',onvif:''},...d.cameraConfig});if(Number.isFinite(d.energyKwh))setEnergyKwh(d.energyKwh);if(Array.isArray(d.paymentHistory))setPaymentHistory(d.paymentHistory);}catch{setProfile({name:String(session.user_metadata?.name||''),photo:'',mobile:session.phone||''});}},[session]);
+  useEffect(()=>{if(!session)return;localStorage.setItem('khushi-data-'+session.uid,JSON.stringify({devices,hardwareControllers,schedules,profile,notificationsOn,securityOn,parkingOn,cameraSetup,cameraConfig,energyKwh,paymentHistory}));},[session,devices,schedules,profile,notificationsOn,securityOn,parkingOn,cameraSetup,cameraConfig,energyKwh,paymentHistory]);
   useEffect(()=>{if(!session)return;const active=devices.filter(d=>d.on).length;if(!active)return;const timer=window.setInterval(()=>setEnergyKwh(v=>Number((v+active*0.0002).toFixed(3))),60000);return()=>window.clearInterval(timer);},[session,devices]);
   useEffect(()=>{if(session&&admin)void loadEnquiries();},[session,admin]);
 
@@ -68,7 +75,40 @@ function App() {
   async function savePlan(plan:Plan){try{const nextPlan={...plan,payment_amount:plan.offer};await khushiApi('save_plan',{plan:nextPlan});setEditingPlan(null);await loadPlans();}catch(e){setAppMessage(e instanceof Error?e.message:'Could not save plan.');}}
   async function saveWhatsapp(){try{await khushiApi('save_whatsapp',{whatsapp});setAppMessage('WhatsApp number saved.');}catch(e){setAppMessage(e instanceof Error?e.message:'Could not save WhatsApp number.');}}
   async function updateEnquiry(id:number,status:string){try{await khushiApi('update_enquiry',{id,status});await loadEnquiries();}catch(e){setAppMessage(e instanceof Error?e.message:'Could not update enquiry.');}}
-  function addDevice(){if(!newDevice.name.trim())return setAppMessage('Enter a device name.');setDevices(x=>[...x,{id:Date.now(),name:newDevice.name.trim(),room:newDevice.room,type:newDevice.type,icon:newDevice.icon,on:false}]);setAppMessage('Device added successfully.');setPage('device-success');}
+  function addHardwareController(){
+    const name=hardwareForm.name.trim();
+    const deviceId=hardwareForm.deviceId.trim();
+    const count=Math.max(1,Math.min(64,Number(hardwareForm.channelCount)||4));
+    if(!name)return setAppMessage('Enter hardware name.');
+    if(!deviceId)return setAppMessage('Enter Device ID / Serial Number.');
+    if(hardwareControllers.some(x=>x.deviceId.toLowerCase()===deviceId.toLowerCase()))return setAppMessage('This Device ID is already added.');
+    const channels:HardwareChannel[]=Array.from({length:count},(_,i)=>({
+      id:i+1,name:'Channel '+(i+1),room:'Living Room',type:'Other',on:false
+    }));
+    const controller:HardwareController={id:Date.now(),name,connectionType:hardwareForm.connectionType,deviceId,channels};
+    setHardwareControllers(x=>[...x,controller]);
+    setSelectedHardwareId(controller.id);
+    setHardwareForm({name:'',connectionType:'Wi-Fi',deviceId:'',channelCount:4});
+    setAppMessage('Hardware controller added successfully.');
+    setPage('hardware-view');
+  }
+  function toggleHardwareChannel(controllerId:number,channelId:number){
+    if(subscriptionExpired)return setAppMessage('Recharge required to control Smart Home devices.');
+    setHardwareControllers(list=>list.map(c=>c.id===controllerId?{...c,channels:c.channels.map(ch=>ch.id===channelId?{...ch,on:!ch.on}:ch)}:c));
+  }
+  function updateHardwareChannel(controllerId:number,channelId:number,patch:Partial<HardwareChannel>){
+    setHardwareControllers(list=>list.map(c=>c.id===controllerId?{...c,channels:c.channels.map(ch=>ch.id===channelId?{...ch,...patch}:ch)}:c));
+  }
+  function deleteHardwareController(controllerId:number){
+    setHardwareControllers(x=>x.filter(c=>c.id!==controllerId));
+    if(selectedHardwareId===controllerId)setSelectedHardwareId(null);
+    setPage('devices');
+  }
+  function openHardware(id:number){
+    setSelectedHardwareId(id);
+    setPage('hardware-view');
+  }
+  function addDevice(){if(!newDevice.name.trim())return setAppMessage('Enter a device name.');if(!newDevice.deviceId.trim())return setAppMessage('Enter Device ID / Serial Number.');setDevices(x=>[...x,{id:Date.now(),name:newDevice.name.trim(),room:newDevice.room,type:newDevice.type,icon:newDevice.icon,on:false,connectionType:newDevice.connectionType,deviceId:newDevice.deviceId.trim()}]);setAppMessage('Device added successfully.');setPage('device-success');}
   function deleteDevice(id:number){setDevices(x=>x.filter(d=>d.id!==id));setSchedules(x=>x.filter(s=>s.deviceId!==id));}
   function editDevice(id:number){const d=devices.find(x=>x.id===id);if(d){setEditingDevice(id);setEditName(d.name);}}
   function saveDeviceName(id:number){if(!editName.trim())return setAppMessage('Enter a device name.');setDevices(x=>x.map(d=>d.id===id?{...d,name:editName.trim()}:d));setEditingDevice(null);}
@@ -89,13 +129,28 @@ function App() {
     {appMessage&&<div className="notice">{appMessage}<button onClick={()=>setAppMessage('')}><X size={15}/></button></div>}{searchOpen&&<div className="search-panel card"><div className="search-row"><Search size={18}/><input autoFocus value={searchQuery} onChange={e=>setSearchQuery(e.target.value)} onKeyDown={e=>{if(e.key==='Enter')runSearch()}} placeholder="Search devices, rooms, payments, schedules..."/><button onClick={runSearch}><Search size={16}/> Search</button></div><small>Try: Living Room, Fan, Payment, UPI, Schedule or Settings</small></div>}
     {page==='home'&&<section className="khushi-reference"><div className="khushi-header"><KhushiLogo/><div className="khushi-actions"><button onClick={()=>setSearchOpen(v=>!v)} aria-label="Search"><Search/></button><button onClick={()=>setPage('notifications')} aria-label="Notifications"><Bell/>{notifications.length>0&&<span>{notifications.length}</span>}</button><button onClick={()=>setPage('profile')} aria-label="Profile">{profile.photo?<img src={profile.photo} alt="Profile"/>:<UserCircle/>}</button>{admin&&<button onClick={()=>setPage('admin')} aria-label="Admin">⚙️</button>}</div></div><div className="hero-card"><div><h1>Control Your<br/>Home In One Place</h1><p>Smart Devices | Safe Home<br/>Happy Living</p></div><div className="hero-house">⌂</div></div><div className="room-card-grid">{ROOMS.map((room,index)=>{const count=devices.filter(d=>d.room===room).length;const active=devices.filter(d=>d.room===room&&d.on).length;const RoomIcon=index===0?Sofa:index===1?Home:index===2?Bot:index===3?BedDouble:index===4?Flame:Droplets;return <button className="model-room-card" key={room} onClick={()=>roomOpen(room)}><div className="room-art"><RoomIcon/></div><b>{room}</b><small>{count} Devices</small><span className="room-toggle"><i>ON</i><em className={active>0?'on':''}></em></span></button>})}</div></section>}
 
-    {page==='devices'&&<section className="model-page"><PageHead title="Devices" subtitle="Manage all smart devices." back={()=>setPage('home')}/><div className="model-list">{devices.map(d=><DeviceCard key={d.id} device={d} disabled={subscriptionExpired} toggle={()=>toggleDevice(d.id)} edit={()=>editDevice(d.id)} remove={()=>deleteDevice(d.id)}/>)}</div><button className="model-primary" onClick={()=>setPage('device-type')}><Plus/> Add Device</button></section>}
+    {page==='hardware-add'&&<section className="model-page"><PageHead title="Add Hardware" subtitle="Connect a smart-home controller." back={()=>setPage('devices')}/><div className="add-form-card"><label>Hardware Name<input value={hardwareForm.name} onChange={e=>setHardwareForm(v=>({...v,name:e.target.value}))} placeholder="Home Controller 1"/></label><div className="icon-choice-title">Connection Method</div><div className="icon-choice-row">{(['Wi-Fi','Bluetooth','4G','5G'] as ConnectionType[]).map(c=><button type="button" key={c} className={hardwareForm.connectionType===c?'selected':''} onClick={()=>setHardwareForm(v=>({...v,connectionType:c}))}>{c==='Wi-Fi'?'📶':c==='Bluetooth'?'🔵':c==='4G'?'📡':'🚀'} {c}</button>)}</div><label>Device ID / Serial Number<input value={hardwareForm.deviceId} onChange={e=>setHardwareForm(v=>({...v,deviceId:e.target.value}))} placeholder="KH001234"/></label><label>Number of Channels<select value={hardwareForm.channelCount} onChange={e=>setHardwareForm(v=>({...v,channelCount:Number(e.target.value)}))}>{[1,2,4,6,8,12,16,24,32,48,64].map(n=><option key={n} value={n}>{n} Channels</option>)}<option value={0}>Custom (1-64)</option></select></label>{hardwareForm.channelCount===0&&<label>Custom Channel Count<input type="number" min="1" max="64" value={hardwareForm.channelCount||''} onChange={e=>setHardwareForm(v=>({...v,channelCount:Math.max(1,Math.min(64,Number(e.target.value)||1))}))} placeholder="Enter 1-64"/></label>}<button className="model-primary" onClick={addHardwareController}><Plus/> Add Hardware Controller</button></div></section>}
+
+{page==='hardware-view'&&<section className="model-page">{(()=>{const c=hardwareControllers.find(x=>x.id===selectedHardwareId);if(!c)return <><PageHead title="Hardware" subtitle="Select a controller." back={()=>setPage('devices')}/><div className="card"><p>No hardware controller selected.</p></div></>;return <><PageHead title={c.name} subtitle={c.connectionType+' • '+c.deviceId+' • '+c.channels.length+' Channels'} back={()=>setPage('devices')}/><div className="model-list">{c.channels.map(ch=><article className={'device card '+(ch.on?'on':'')} key={ch.id}><div className="device-icon"><Power/></div><div className="controller-content"><div className="controller-head"><div><b>CH{ch.id} • {ch.name}</b><small>{ch.room} • {ch.type}</small></div><div className="device-actions"><button onClick={()=>{const name=window.prompt('Channel name',ch.name);if(name?.trim())updateHardwareChannel(c.id,ch.id,{name:name.trim()})}}>✏️</button><button className="power" onClick={()=>toggleHardwareChannel(c.id,ch.id)} disabled={subscriptionExpired}><Power size={17}/></button></div></div><div className="device-state">{ch.on?'ON':'OFF'}</div><div className="button-row"><select value={ch.type} onChange={e=>updateHardwareChannel(c.id,ch.id,{type:e.target.value as ChannelType})}><option>Light</option><option>Fan</option><option>AC</option><option>TV</option><option>Smart Plug</option><option>Other</option></select><select value={ch.room} onChange={e=>updateHardwareChannel(c.id,ch.id,{room:e.target.value})}>{ROOMS.map(r=><option key={r}>{r}</option>)}</select></div></div></article>)}</div><button className="profile-logout" onClick={()=>deleteHardwareController(c.id)}><Trash2/> Delete Controller</button></>})()}</section>}
+
+{page==='devices'&&<section className="model-page"><PageHead title="Devices" subtitle="Manage all smart devices." back={()=>setPage('home')}/><div className="model-list">{hardwareControllers.map(c=><article className="card setting-row" key={c.id} onClick={()=>openHardware(c.id)}><div><b>🏠 {c.name}</b><small>{c.connectionType} • {c.deviceId} • {c.channels.length} Channels</small></div><button onClick={(e)=>{e.stopPropagation();openHardware(c.id)}}>OPEN</button></article>)}{devices.map(d=><DeviceCard key={d.id} device={d} disabled={subscriptionExpired} toggle={()=>toggleDevice(d.id)} edit={()=>editDevice(d.id)} remove={()=>deleteDevice(d.id)}/>)}</div><button className="model-primary" onClick={()=>setPage('hardware-add')}><Plus/> Add Hardware Controller</button><button className="model-secondary" onClick={()=>setPage('device-type')}><Plus/> Add Individual Device</button></section>}
 
     {page==='add-device'&&<section className="model-page"><PageHead title="Add Device" subtitle="Select a room and continue." back={()=>setPage('rooms')}/><div className="empty-device-card"><SlidersHorizontal/><h2>{roomPage||'Living Room'}</h2><p>No devices added yet</p><p>Add lights, fans or other smart devices to control them from here.</p><button className="model-primary" onClick={()=>setPage('device-type')}><Plus/> Add Device</button></div><div className="model-tip">💡 <b>Tip:</b> You can add multiple devices to this room and control them together.</div></section>}
 
     {page==='device-type'&&<section className="model-page"><PageHead title="Add Device" subtitle="Select Device Type" back={()=>setPage('add-device')}/><div className="type-list">{DEVICE_TYPES.map(type=>{const Icon=iconFor(type);const desc=type==='Light'?'Smart Light / Bulb':type==='Fan'?'Ceiling or Table Fan':type==='AC'?'Air Conditioner':type==='TV'?'Television':type==='Smart Plug'?'Any electrical device':type==='Camera'?'Security Camera':'Other smart devices';return <button className="type-row" key={type} onClick={()=>{if(type==='Camera'){setCameraSetup(false);setPage('camera');return;}setNewDevice(v=>({...v,type,icon:type,name:''}));setPage('add-device-form')}}><span><Icon/></span><div><b>{type}</b><small>{desc}</small></div><ArrowLeft className="type-arrow"/></button>})}</div></section>}
 
-    {page==='add-device-form'&&<section className="model-page"><PageHead title={'Add '+newDevice.type} subtitle="Enter device details and save." back={()=>setPage('device-type')}/><div className="add-form-card"><label>Device Name<input value={newDevice.name} onChange={e=>setNewDevice(v=>({...v,name:e.target.value}))} placeholder="Hall Light 1"/></label><label>Select Room<select value={newDevice.room} onChange={e=>setNewDevice(v=>({...v,room:e.target.value}))}>{ROOMS.map(r=><option key={r}>{r}</option>)}</select></label><div className="icon-choice-title">Device Icon</div><div className="icon-choice-row">{DEVICE_TYPES.slice(0,4).map(type=>{const Icon=iconFor(type);return <button key={type} className={newDevice.type===type?'selected':''} onClick={()=>setNewDevice(v=>({...v,type,icon:type}))}><Icon/></button>})}</div><button className="model-primary" onClick={addDevice}><Save/> Save Device</button></div></section>}
+    {page==='add-device-form'&&<section className="model-page"><PageHead title={'Add '+newDevice.type} subtitle="Enter device details and save." back={()=>setPage('device-type')}/><div className="add-form-card"><label>Device Name<input value={newDevice.name} onChange={e=>setNewDevice(v=>({...v,name:e.target.value}))} placeholder="Hall Light 1"/></label><label>Select Room<select value={newDevice.room} onChange={e=>setNewDevice(v=>({...v,room:e.target.value}))}>{ROOMS.map(r=><option key={r}>{r}</option>)}</select></label>
+<div className="icon-choice-title">Connection Method</div>
+<div className="icon-choice-row">
+{(['Wi-Fi','Bluetooth','4G','5G'] as ConnectionType[]).map(c=>
+<button type="button" key={c} className={newDevice.connectionType===c?'selected':''}
+onClick={()=>setNewDevice(v=>({...v,connectionType:c}))}>
+{c==='Wi-Fi'?'📶':c==='Bluetooth'?'🔵':c==='4G'?'📡':'🚀'} {c}
+</button>)}
+</div>
+<label>Device ID / Serial Number
+<input value={newDevice.deviceId} onChange={e=>setNewDevice(v=>({...v,deviceId:e.target.value}))} placeholder="Example: KH001234"/>
+</label><div className="icon-choice-title">Device Icon</div><div className="icon-choice-row">{DEVICE_TYPES.slice(0,4).map(type=>{const Icon=iconFor(type);return <button key={type} className={newDevice.type===type?'selected':''} onClick={()=>setNewDevice(v=>({...v,type,icon:type}))}><Icon/></button>})}</div><button className="model-primary" onClick={addDevice}><Save/> Save Device</button></div></section>}
 
     {page==='device-success'&&<section className="model-page"><PageHead title={newDevice.room} subtitle="Device added successfully" back={()=>roomOpen(newDevice.room)}/><div className="success-device-card"><CheckCircle2/><h2>Device added successfully!</h2><p><b>{newDevice.name}</b> has been added to {newDevice.room}.</p><button className="model-primary" onClick={()=>roomOpen(newDevice.room)}>Go to Room</button><button className="model-secondary" onClick={()=>setPage('device-type')}>Add Another Device</button></div></section>}
 
