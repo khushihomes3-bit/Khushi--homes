@@ -47,7 +47,7 @@ function App() {
   const [searchOpen,setSearchOpen]=useState(false); const [searchQuery,setSearchQuery]=useState('');
   const [paymentMethod,setPaymentMethod]=useState<'UPI'|'Card'|'Net Banking'>('UPI'); const [paymentHistory,setPaymentHistory]=useState<PaymentRecord[]>([]);
   const subscriptionExpired=Boolean(subscription&&new Date(subscription.expires_at).getTime()<=Date.now());
-  const directAppEntry=window.location.pathname.endsWith('/app')||new URLSearchParams(window.location.search).get('entry')==='1';
+  const directAppEntry=window.location.pathname.endsWith('/app')||new URLSearchParams(window.location.search).get('entry')==='1'||document.referrer.startsWith('android-app://');
 
   useEffect(()=>{const unsub=onAuthStateChanged(auth,setSession);return()=>unsub();},[]);
   useEffect(()=>{if(!session)return;loadPlans();loadProfile();try{const d=JSON.parse(localStorage.getItem('khushi-data-'+session.uid)||'{}');if(d.devices)setDevices(d.devices);if(d.schedules)setSchedules(d.schedules);if(d.profile)setProfile({...{name:'',photo:'',mobile:''},...d.profile});if(typeof d.notificationsOn==='boolean')setNotificationsOn(d.notificationsOn);if(typeof d.securityOn==='boolean')setSecurityOn(d.securityOn);if(typeof d.parkingOn==='boolean')setParkingOn(d.parkingOn);if(typeof d.cameraSetup==='boolean')setCameraSetup(d.cameraSetup);if(d.cameraConfig)setCameraConfig({...{name:'',host:'',rtsp:'',onvif:''},...d.cameraConfig});if(Number.isFinite(d.energyKwh))setEnergyKwh(d.energyKwh);if(Array.isArray(d.paymentHistory))setPaymentHistory(d.paymentHistory);}catch{setProfile({name:String(session.user_metadata?.name||''),photo:'',mobile:session.phone||''});}},[session]);
