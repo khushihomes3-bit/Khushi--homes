@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Direct app launch opens login",
+    "sanity": true,
+    "viewport": "mobile",
+    "covers": ["Play Store direct app launch", "direct app login", "authentication boundary"],
+    "description": "Verifies the app manifest entry opens the KHUSHI HOMES login screen instead of the public website landing page.",
+    "steps": ["Open the installed app entry", "Observe the first screen"],
+    "expected": "The KHUSHI HOMES email/password login screen is shown directly and the public landing page is not shown."
+  },
+  {
+    "name": "New member can sign in with email and password",
+    "viewport": "mobile",
+    "covers": ["new member account creation", "email/password authentication", "automatic first-login sign-in"],
+    "description": "Verifies a new member entering a valid email and password can be created and signed in from the login screen.",
+    "steps": ["Open the direct app login", "Enter a new valid email address and a password of at least 6 characters", "Tap Sign in"],
+    "expected": "A new account is created automatically and the member is taken into the KHUSHI HOMES app without an incorrect-password error."
+  },
+  {
+    "name": "Existing member can recover a wrong password",
+    "viewport": "desktop",
+    "covers": ["existing account password validation", "forgot password", "authentication error handling"],
+    "description": "Verifies an existing account with a wrong password receives a clear recovery message and can use password reset.",
+    "steps": ["Open Login", "Enter an existing account email with an incorrect password", "Observe the message and use Forgot password"],
+    "expected": "The app explains that the password is incorrect for an existing account and provides the Forgot password action."
+  },
+  {
+    "name": "Existing app controls remain available after sign-in",
+    "viewport": "desktop",
+    "covers": ["existing device controls", "subscription flow", "profile and settings"],
+    "description": "Verifies the existing authenticated KHUSHI HOMES experience remains accessible after the authentication changes.",
+    "steps": ["Sign in with a valid member account", "Open Devices", "Open Subscriptions and Settings"],
+    "expected": "Devices, subscription options, and Settings remain accessible after sign-in."
+  }
+]

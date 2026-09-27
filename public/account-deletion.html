@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KHUSHI HOMES - Account Deletion</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f7fa;margin:0;padding:24px;color:#17202a}
+main{max-width:520px;margin:40px auto;background:#fff;padding:28px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+h1{margin-top:0}.muted{color:#667085}.danger{background:#b42318;color:#fff;border:0;padding:13px 16px;border-radius:10px;font-weight:700;width:100%}input{box-sizing:border-box;width:100%;padding:12px;margin:7px 0 14px;border:1px solid #d0d5dd;border-radius:9px}#status{margin-top:16px;font-weight:600}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+<main>
+<h1>KHUSHI HOMES Account Deletion</h1>
+<p class="muted">Use this page to permanently delete your KHUSHI HOMES account and associated app data. You do not need to reinstall the app.</p>
+<label>Email address<input id="email" type="email" autocomplete="username" required></label>
+<label>Password<input id="password" type="password" autocomplete="current-password" required></label>
+<button id="deleteBtn" class="danger">Sign in &amp; Delete Account</button>
+<div id="status"></div>
+</main>
+<script>
+const firebaseConfig={apiKey:'AIzaSyBdZNPBnJXeMAEjt-Djr_YcbGhB9HvFfco',authDomain:'khushi-homes-6db7b.firebaseapp.com',projectId:'khushi-homes-6db7b',storageBucket:'khushi-homes-6db7b.firebasestorage.app',messagingSenderId:'351498186013',appId:'1:351498186013:web:ad7e928e77220b3d7385f4'};
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const functionUrl='https://mnpddeonqssyqvmmdega.supabase.co/functions/v1/khushi-api';
+const statusEl=document.getElementById('status');
+document.getElementById('deleteBtn').addEventListener('click',async()=>{
+  const email=document.getElementById('email').value.trim().toLowerCase();
+  const password=document.getElementById('password').value;
+  if(!email||!password){statusEl.textContent='Enter your email and password.';return;}
+  if(!confirm('Permanently delete this KHUSHI HOMES account and associated app data?'))return;
+  statusEl.textContent='Verifying account and deleting data...';
+  try{
+    const credential=await auth.signInWithEmailAndPassword(email,password);
+    const token=await credential.user.getIdToken(true);
+    const response=await fetch(functionUrl,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({action:'delete_account'})});
+    const data=await response.json();
+    if(!response.ok||data.error)throw new Error(data.error||'Could not delete account data.');
+    await credential.user.delete();
+    statusEl.textContent='Your KHUSHI HOMES account and associated app data have been deleted.';
+    document.getElementById('deleteBtn').disabled=true;
+  }catch(error){statusEl.textContent=error&&error.message?error.message:'Account deletion failed. Please try again.';}
+});
+</script>
+</body>
+</html>
