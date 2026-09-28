@@ -673,3 +673,4363 @@
   }
 }
 
+
+/* =========================================================
+   KHUSHI HOMES — REFERENCE DASHBOARD
+   Home presentation only — existing functionality untouched
+   ========================================================= */
+
+.khushi-home-dashboard{
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
+  padding:8px 0 104px;
+  background:#f4f8fd;
+  color:#0d294b;
+}
+
+/* HEADER */
+.khushi-welcome-header{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:10px;
+  padding:4px 4px 14px;
+}
+
+.khushi-welcome-header .khushi-logo{
+  gap:0;
+}
+
+.khushi-welcome-header .khushi-logo-mark{
+  width:72px;
+  height:72px;
+  background:transparent;
+  border-radius:0;
+  color:#087fd5;
+}
+
+.khushi-welcome-header .khushi-logo-mark svg{
+  width:64px;
+  height:64px;
+}
+
+.khushi-welcome-header .khushi-logo-text{
+  display:none;
+}
+
+.welcome-text{
+  min-width:0;
+}
+
+.welcome-text small{
+  display:block;
+  color:#5d6f86;
+  font-size:13px;
+  line-height:1.2;
+  margin-bottom:2px;
+}
+
+.welcome-text b{
+  display:block;
+  color:#092b53;
+  font-size:25px;
+  line-height:1.08;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.welcome-text span{
+  display:block;
+  color:#63748a;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.welcome-bell{
+  width:52px;
+  height:52px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:#0876dc;
+  display:grid;
+  place-items:center;
+  position:relative;
+  box-shadow:0 6px 18px rgba(17,60,100,.10);
+}
+
+.welcome-bell svg{
+  width:28px;
+  height:28px;
+  stroke-width:2.3;
+}
+
+.welcome-bell span{
+  position:absolute;
+  top:7px;
+  right:7px;
+  min-width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#ef3340;
+  color:transparent;
+}
+
+/* MY HOME */
+.my-home-card{
+  min-height:276px;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  padding:30px 30px 24px;
+  display:flex;
+  align-items:flex-start;
+  background:
+    linear-gradient(90deg,rgba(3,45,94,.98) 0%,rgba(4,67,130,.88) 48%,rgba(8,73,130,.25) 100%),
+    linear-gradient(135deg,#063f82,#1978c8);
+  box-shadow:0 12px 28px rgba(5,57,110,.18);
+}
+
+.my-home-info{
+  position:relative;
+  z-index:2;
+  width:58%;
+}
+
+.my-home-title{
+  color:#fff;
+  font-size:27px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.my-home-title span{
+  font-size:23px;
+  margin-left:10px;
+  opacity:.9;
+}
+
+.my-home-status{
+  margin-top:12px;
+  color:#d6e2f0;
+  font-size:18px;
+}
+
+.my-home-status i{
+  display:inline-block;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#0ab45a;
+  margin:0 7px;
+}
+
+.my-home-status b{
+  color:#fff;
+}
+
+.my-home-card p{
+  color:#c9d7e8;
+  font-size:13px;
+  line-height:1.35;
+  margin:16px 0 25px;
+}
+
+.my-home-card button{
+  border:0;
+  background:#fff;
+  color:#12385f;
+  border-radius:30px;
+  min-height:54px;
+  padding:0 19px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:15px;
+  font-weight:800;
+  white-space:nowrap;
+  box-shadow:0 5px 14px rgba(0,0,0,.10);
+}
+
+.my-home-card button svg{
+  width:20px;
+  height:20px;
+  fill:#1767b5;
+  color:#1767b5;
+}
+
+.my-home-card button strong{
+  color:#1674cf;
+  font-size:27px;
+  line-height:1;
+  margin-left:2px;
+}
+
+.my-home-house{
+  position:absolute;
+  right:-30px;
+  bottom:-35px;
+  width:64%;
+  height:90%;
+  font-size:0;
+  opacity:1;
+  background:
+    linear-gradient(145deg,transparent 0 28%,rgba(255,255,255,.08) 29% 30%,transparent 31%),
+    linear-gradient(135deg,#132e4d 0 49%,transparent 50%);
+  clip-path:polygon(8% 44%,50% 7%,92% 44%,92% 100%,8% 100%);
+}
+
+/* SUMMARY */
+.home-summary{
+  margin-top:14px;
+  min-height:108px;
+  padding:15px 8px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(18,65,105,.07);
+}
+
+.home-summary>div{
+  min-width:0;
+  display:grid;
+  grid-template-columns:42px 1fr;
+  grid-template-rows:auto auto auto;
+  column-gap:8px;
+  align-items:center;
+  padding:0 9px;
+  border-right:1px solid #dce4ec;
+}
+
+.home-summary>div:last-child{
+  border-right:0;
+}
+
+.summary-icon{
+  grid-row:1 / span 3;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+}
+
+.summary-icon svg{
+  width:27px;
+  height:27px;
+}
+
+.summary-icon.light{
+  background:#d9f6e5;
+  color:#07954b;
+}
+
+.summary-icon.fan{
+  background:#d9ebff;
+  color:#0876e6;
+}
+
+.summary-icon.camera{
+  background:#d9efff;
+  color:#0876e6;
+}
+
+.summary-icon.lock{
+  background:#dcf4e5;
+  color:#0a9650;
+}
+
+.home-summary b{
+  font-size:22px;
+  line-height:1;
+  color:#092d55;
+}
+
+.home-summary small{
+  font-size:12px;
+  color:#65758a;
+}
+
+.home-summary em{
+  font-size:12px;
+  font-style:normal;
+  color:#159653;
+  font-weight:800;
+}
+
+/* SECTION HEADERS */
+.home-section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:24px 2px 11px;
+}
+
+.home-section-title h2{
+  margin:0;
+  font-size:23px;
+  color:#092d55;
+  font-weight:800;
+}
+
+.home-section-title button{
+  border:0;
+  background:none;
+  color:#0877df;
+  font-size:14px;
+  font-weight:800;
+}
+
+/* QUICK CONTROLS */
+.quick-control-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.quick-control{
+  min-height:100px;
+  border:2px solid rgba(255,255,255,.85);
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:50px 1fr 18px;
+  grid-template-rows:1fr auto;
+  column-gap:8px;
+  align-items:center;
+  padding:15px 14px;
+  text-align:left;
+  box-shadow:0 5px 15px rgba(24,66,105,.07);
+  position:relative;
+}
+
+.quick-control.green{
+  background:#eaf9f0;
+}
+
+.quick-control.blue{
+  background:#edf5ff;
+}
+
+.quick-control.purple{
+  background:#f0efff;
+}
+
+.quick-control>span{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  grid-row:1 / span 2;
+}
+
+.quick-control.green>span{
+  color:#078f49;
+  background:#d8f3e1;
+}
+
+.quick-control.blue>span{
+  color:#0878e5;
+  background:#dbeeff;
+}
+
+.quick-control.purple>span{
+  color:#4b25db;
+  background:#e3ddff;
+}
+
+.quick-control>span svg{
+  width:30px;
+  height:30px;
+}
+
+.quick-control>div{
+  min-width:0;
+}
+
+.quick-control>div b{
+  display:block;
+  color:#092d55;
+  font-size:15px;
+  line-height:1.2;
+}
+
+.quick-control>div small{
+  display:block;
+  margin-top:5px;
+  color:#159653;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.quick-control.blue>div small,
+.quick-control.purple>div small{
+  color:#62748a;
+}
+
+
+.quick-control>strong{
+  color:#5f7185;
+  font-size:25px;
+  font-weight:400;
+}
+
+.quick-control>i{
+  grid-column:3;
+  width:43px;
+  height:24px;
+  border-radius:20px;
+  background:#0aa65a;
+  position:relative;
+}
+
+.quick-control>i::after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  right:3px;
+  top:3px;
+  box-shadow:0 1px 3px rgba(0,0,0,.15);
+}
+
+.home-rooms-row{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:0 1px 7px;
+  scrollbar-width:none;
+}
+
+.home-rooms-row::-webkit-scrollbar{
+  display:none;
+}
+
+.home-room-photo-card{
+  flex:0 0 155px;
+  min-width:155px;
+  border:0;
+  border-radius:16px;
+  overflow:hidden;
+  padding:0 0 10px;
+  background:#fff;
+  text-align:left;
+  color:#092d55;
+  box-shadow:0 5px 15px rgba(24,66,105,.08);
+}
+
+.room-photo{
+  height:112px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:linear-gradient(145deg,#e7d6c4,#bfa991 45%,#e9ded1);
+}
+
+.room-photo-1{
+  background:linear-gradient(145deg,#eadfd0,#c8b39b 50%,#eee5db);
+}
+
+.room-photo-2{
+  background:linear-gradient(145deg,#ddd1c2,#b7a48f 50%,#e4d8ca);
+}
+
+.room-photo-3{
+  background:linear-gradient(145deg,#d9c2a2,#a98159 50%,#e5d4bd);
+}
+
+.room-photo svg{
+  width:55px;
+  height:55px;
+  color:rgba(255,255,255,.82);
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.15));
+}
+
+.home-room-photo-card>b{
+  display:block;
+  padding:8px 10px 2px;
+  font-size:14px;
+  white-space:nowrap;
+}
+
+.home-room-photo-card>small{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:0 10px;
+  color:#52677f;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.home-room-photo-card>small i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#0aa65a;
+}
+
+.home-room-photo-card>small strong{
+  margin-left:auto;
+  font-size:20px;
+  font-weight:400;
+  color:#60738a;
+}
+
+@media(max-width:520px){
+  .khushi-home-dashboard{
+    max-width:100%;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .welcome-text b{
+    font-size:23px;
+  }
+
+  .my-home-card{
+    min-height:276px;
+    border-radius:19px;
+  }
+
+  .home-summary{
+    border-radius:18px;
+  }
+
+  .home-summary>div{
+    padding:0 5px;
+    grid-template-columns:36px 1fr;
+    column-gap:5px;
+  }
+
+  .summary-icon{
+    width:36px;
+    height:36px;
+  }
+
+  .summary-icon svg{
+    width:23px;
+    height:23px;
+  }
+
+  .home-summary b{
+    font-size:20px;
+  }
+
+  .home-summary small,
+  .home-summary em{
+    font-size:10px;
+  }
+}
+
+/* FINAL REFERENCE DASHBOARD FIX */
+.khushi-home-dashboard{
+  box-sizing:border-box;
+  overflow-x:hidden;
+}
+
+/* Header logo */
+.khushi-welcome-header .reference-logo-image{
+  width:118px !important;
+  height:92px !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Hero card + house image */
+.reference-hero-card{
+  position:relative !important;
+  overflow:hidden !important;
+  min-height:276px !important;
+}
+
+.reference-hero-image{
+  position:absolute !important;
+  right:8px !important;
+  top:18px !important;
+  width:42% !important;
+  height:88% !important;
+  display:block !important;
+  background-image:url('/dashboard-reference/hero-house.jpg') !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:contain !important;
+  z-index:1 !important;
+}
+
+.reference-hero-card .my-home-info{
+  position:relative !important;
+  z-index:2 !important;
+  width:58% !important;
+}
+
+/* Summary reference icons */
+.home-summary img{
+  width:54px !important;
+  height:54px !important;
+  object-fit:contain !important;
+  display:block !important;
+  margin:0 auto 4px !important;
+}
+
+.home-summary>div{
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+/* Quick control reference images */
+.reference-control>span{
+  width:58px !important;
+  height:58px !important;
+  background:transparent !important;
+  border-radius:12px !important;
+  overflow:hidden !important;
+}
+
+.reference-control>span img{
+  width:58px !important;
+  height:58px !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Quick control text */
+.reference-control>div{
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+.reference-control>div b{
+  white-space:nowrap !important;
+}
+
+.reference-control>div small{
+  white-space:nowrap !important;
+}
+
+/* Bottom navigation */
+main>nav{
+  box-sizing:border-box !important;
+  height:82px !important;
+  padding:8px 8px 7px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  align-items:center !important;
+  overflow:hidden !important;
+}
+
+main>nav button{
+  min-width:0 !important;
+  height:58px !important;
+  padding:4px 2px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:3px !important;
+  overflow:hidden !important;
+}
+
+main>nav button img{
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  min-height:34px !important;
+  max-width:34px !important;
+  max-height:34px !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+main>nav button span{
+  display:block !important;
+  font-size:11px !important;
+  line-height:14px !important;
+  white-space:nowrap !important;
+}
+
+/* Mobile reference sizing */
+@media(max-width:520px){
+  .khushi-welcome-header .reference-logo-image{
+    width:112px !important;
+    height:88px !important;
+  }
+
+  .reference-hero-card{
+    min-height:276px !important;
+  }
+
+  .reference-hero-image{
+    right:5px !important;
+    width:43% !important;
+    height:88% !important;
+  }
+
+  .home-summary img{
+    width:48px !important;
+    height:48px !important;
+  }
+
+  .reference-control>span,
+  .reference-control>span img{
+    width:52px !important;
+    height:52px !important;
+  }
+
+  main>nav{
+    height:78px !important;
+  }
+
+  main>nav button{
+    height:64px !important;
+  }
+
+  main>nav button img{
+    width:31px !important;
+    height:31px !important;
+    min-width:31px !important;
+    min-height:31px !important;
+    max-width:31px !important;
+    max-height:31px !important;
+  }
+}
+
+
+/* NAV ICONS — show icon only, hide text embedded inside reference images */
+main>nav button img{
+  width:34px !important;
+  height:30px !important;
+  object-fit:cover !important;
+  object-position:top !important;
+  display:block !important;
+}
+
+main>nav button span{
+  margin-top:2px !important;
+  line-height:14px !important;
+}
+
+@media(max-width:520px){
+  main>nav button img{
+    width:32px !important;
+    height:28px !important;
+    object-fit:cover !important;
+    object-position:top !important;
+  }
+}
+
+/* CLEAN BOTTOM NAV */
+main>nav .nav-ref-icon{
+  width:32px !important;
+  height:32px !important;
+  display:block !important;
+  flex:none !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:contain !important;
+}
+
+main>nav .nav-home-icon{
+  background-image:url('/dashboard-reference/nav-home.png') !important;
+}
+
+main>nav .nav-rooms-icon{
+  background-image:url('/dashboard-reference/nav-rooms.png') !important;
+}
+
+main>nav .nav-devices-icon{
+  background-image:url('/dashboard-reference/nav-devices.png') !important;
+}
+
+main>nav .nav-settings-icon{
+  background-image:url('/dashboard-reference/nav-settings.png') !important;
+}
+
+main>nav button span:not(.nav-ref-icon){
+  font-size:11px !important;
+  line-height:14px !important;
+  margin-top:2px !important;
+}
+
+/* Small notification bell */
+.welcome-bell{
+  width:58px !important;
+  height:58px !important;
+  min-width:58px !important;
+  border-radius:50% !important;
+}
+
+.welcome-bell svg{
+  width:30px !important;
+  height:30px !important;
+}
+
+@media(max-width:520px){
+  main>nav .nav-ref-icon{
+    width:30px !important;
+    height:30px !important;
+  }
+
+  .welcome-bell{
+    width:52px !important;
+    height:52px !important;
+    min-width:52px !important;
+  }
+
+  .welcome-bell svg{
+    width:27px !important;
+    height:27px !important;
+  }
+}
+
+/* FINAL CLEAN NAVIGATION */
+main>nav .bottom-nav-icon{
+  width:23px !important;
+  height:23px !important;
+  flex-shrink:0 !important;
+}
+
+main>nav button{
+  gap:4px !important;
+}
+
+main>nav button span{
+  font-size:11px !important;
+  line-height:14px !important;
+}
+
+/* SMALL BELL */
+.khushi-welcome-header .welcome-bell{
+  width:38px !important;
+  height:38px !important;
+  min-width:38px !important;
+  padding:7px !important;
+}
+
+.khushi-welcome-header .welcome-bell svg{
+  width:20px !important;
+  height:20px !important;
+}
+
+/* ===== MASTER REFERENCE SIZE & LAYOUT ===== */
+
+.khushi-home-dashboard{
+  width:100% !important;
+  max-width:420px !important;
+  margin:0 auto !important;
+  padding:6px 12px 92px !important;
+  box-sizing:border-box !important;
+}
+
+/* HEADER */
+.khushi-welcome-header{
+  height:108px !important;
+  padding:4px 2px 10px !important;
+  gap:8px !important;
+}
+
+.khushi-welcome-header .reference-logo-image{
+  width:105px !important;
+  height:88px !important;
+  object-fit:contain !important;
+}
+
+.welcome-text b{
+  font-size:23px !important;
+  line-height:1.1 !important;
+}
+
+.welcome-text small{
+  font-size:13px !important;
+}
+
+.welcome-text span{
+  font-size:12px !important;
+  line-height:1.15 !important;
+}
+
+/* BELL */
+.khushi-welcome-header .welcome-bell{
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  padding:8px !important;
+  top:5px !important;
+  right:2px !important;
+}
+
+.khushi-welcome-header .welcome-bell svg{
+  width:22px !important;
+  height:22px !important;
+}
+
+/* MY HOME */
+.reference-hero-card{
+  width:100% !important;
+  min-height:276px !important;
+  height:276px !important;
+  border-radius:20px !important;
+  margin:0 0 14px !important;
+}
+
+.reference-hero-image{
+  right:5px !important;
+  top:18px !important;
+  width:47% !important;
+  height:88% !important;
+  background-size:contain !important;
+  background-position:center right !important;
+}
+
+.reference-hero-card .my-home-info{
+  width:59% !important;
+  padding:26px 0 20px 25px !important;
+}
+
+.my-home-title{
+  font-size:27px !important;
+}
+
+.my-home-status{
+  font-size:18px !important;
+  margin-top:8px !important;
+}
+
+.my-home-info p{
+  font-size:13px !important;
+  line-height:1.35 !important;
+}
+
+/* SUMMARY */
+.home-summary{
+  width:100% !important;
+  min-height:112px !important;
+  height:112px !important;
+  border-radius:19px !important;
+  margin-bottom:28px !important;
+}
+
+.home-summary img{
+  width:48px !important;
+  height:48px !important;
+}
+
+/* QUICK CONTROLS */
+.home-section-title{
+  margin:0 4px 14px !important;
+}
+
+.home-section-title h2{
+  font-size:25px !important;
+}
+
+.quick-control-grid{
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+}
+
+.quick-control{
+  min-height:91px !important;
+  height:91px !important;
+  border-radius:19px !important;
+  padding:12px !important;
+  grid-template-columns:50px 1fr 15px !important;
+}
+
+.reference-control>span,
+.reference-control>span img{
+  width:48px !important;
+  height:48px !important;
+}
+
+/* ROOMS — FOUR CARDS */
+.rooms-heading{
+  margin-top:30px !important;
+  margin-bottom:14px !important;
+}
+
+.home-rooms-row{
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  gap:8px !important;
+  overflow:hidden !important;
+}
+
+.home-room-photo-card{
+  min-width:0 !important;
+  width:100% !important;
+  border-radius:17px !important;
+  overflow:hidden !important;
+}
+
+.reference-room-photo{
+  height:105px !important;
+}
+
+.reference-room-photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+.home-room-photo-card>b{
+  font-size:13px !important;
+  white-space:nowrap !important;
+}
+
+.home-room-photo-card>small{
+  font-size:10px !important;
+  white-space:nowrap !important;
+}
+
+/* BOTTOM NAV */
+main>nav{
+  height:78px !important;
+  min-height:78px !important;
+  padding:7px 8px !important;
+  border-radius:25px !important;
+}
+
+main>nav button{
+  height:64px !important;
+  gap:4px !important;
+}
+
+main>nav .bottom-nav-icon{
+  width:25px !important;
+  height:25px !important;
+}
+
+main>nav button span{
+  font-size:11px !important;
+  line-height:14px !important;
+}
+
+/* MOBILE */
+@media(max-width:420px){
+  .khushi-home-dashboard{
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+
+  .khushi-welcome-header{
+    height:104px !important;
+  }
+
+  .khushi-welcome-header .reference-logo-image{
+    width:100px !important;
+    height:84px !important;
+  }
+
+  .welcome-text b{
+    font-size:21px !important;
+  }
+
+  .reference-hero-card{
+    height:270px !important;
+    min-height:270px !important;
+  }
+
+  .reference-hero-card .my-home-info{
+    padding-left:22px !important;
+  }
+
+  .home-summary{
+    height:108px !important;
+    min-height:108px !important;
+  }
+
+  .quick-control{
+    height:88px !important;
+    min-height:88px !important;
+  }
+
+  .reference-room-photo{
+    height:96px !important;
+  }
+}
+
+
+/* =========================================================
+   KHUSHI HOMES — MASTER REFERENCE ONE-SCREEN FIT
+   Keep complete dashboard visible without page scrolling
+   ========================================================= */
+
+.khushi-home-dashboard{
+  width:100% !important;
+  max-width:440px !important;
+  height:calc(100dvh - 78px) !important;
+  min-height:0 !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+  padding:4px 12px 4px !important;
+}
+
+/* HEADER */
+.khushi-welcome-header{
+  height:58px !important;
+  min-height:58px !important;
+  padding:2px 2px 5px !important;
+  gap:6px !important;
+}
+
+.khushi-welcome-header .reference-logo-image{
+  width:72px !important;
+  height:62px !important;
+  object-fit:contain !important;
+}
+
+.welcome-text small{
+  font-size:9px !important;
+  line-height:10px !important;
+}
+
+.welcome-text b{
+  font-size:16px !important;
+  line-height:18px !important;
+  white-space:nowrap !important;
+}
+
+.welcome-text span{
+  font-size:9px !important;
+  line-height:10px !important;
+}
+
+/* BELL */
+.khushi-welcome-header .welcome-bell{
+  width:30px !important;
+  height:30px !important;
+  min-width:30px !important;
+  padding:5px !important;
+  top:2px !important;
+  right:2px !important;
+}
+
+.khushi-welcome-header .welcome-bell svg{
+  width:16px !important;
+  height:16px !important;
+}
+
+/* MY HOME */
+.reference-hero-card{
+  width:100% !important;
+  height:138px !important;
+  min-height:138px !important;
+  margin:0 0 7px !important;
+  border-radius:12px !important;
+}
+
+.reference-hero-card .my-home-info{
+  width:56% !important;
+  padding:12px 0 8px 16px !important;
+}
+
+.my-home-title{
+  font-size:19px !important;
+  line-height:21px !important;
+}
+
+.my-home-status{
+  font-size:12px !important;
+  line-height:15px !important;
+  margin-top:3px !important;
+}
+
+.my-home-info p{
+  font-size:8px !important;
+  line-height:11px !important;
+  margin:3px 0 !important;
+}
+
+.reference-hero-image{
+  top:7px !important;
+  right:3px !important;
+  width:49% !important;
+  height:94% !important;
+}
+
+/* SUMMARY */
+.home-summary{
+  height:58px !important;
+  min-height:58px !important;
+  margin:0 0 9px !important;
+  border-radius:12px !important;
+}
+
+.home-summary img{
+  width:30px !important;
+  height:30px !important;
+  margin-bottom:1px !important;
+}
+
+.home-summary small{
+  font-size:8px !important;
+  line-height:9px !important;
+}
+
+.home-summary em{
+  font-size:7px !important;
+  line-height:8px !important;
+}
+
+/* QUICK CONTROLS TITLE */
+.home-section-title{
+  margin:0 3px 5px !important;
+}
+
+.home-section-title h2{
+  font-size:18px !important;
+  line-height:20px !important;
+}
+
+.home-section-title button{
+  font-size:10px !important;
+}
+
+/* QUICK CONTROLS */
+.quick-control-grid{
+  grid-template-columns:1fr 1fr !important;
+  gap:6px !important;
+}
+
+.quick-control{
+  height:57px !important;
+  min-height:57px !important;
+  padding:6px !important;
+  border-radius:11px !important;
+  grid-template-columns:31px 1fr 10px !important;
+  column-gap:6px !important;
+}
+
+.reference-control>span,
+.reference-control>span img{
+  width:30px !important;
+  height:30px !important;
+}
+
+.reference-control>div b{
+  font-size:10px !important;
+  line-height:11px !important;
+}
+
+.reference-control>div small{
+  font-size:7px !important;
+  line-height:8px !important;
+  margin-top:2px !important;
+}
+
+.quick-control>strong{
+  font-size:15px !important;
+}
+
+/* ROOMS */
+.rooms-heading{
+  margin:10px 3px 5px !important;
+}
+
+.rooms-heading h2{
+  font-size:18px !important;
+  line-height:20px !important;
+}
+
+.rooms-heading button{
+  font-size:10px !important;
+}
+
+.home-rooms-row{
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  gap:5px !important;
+  overflow:hidden !important;
+  padding:0 !important;
+}
+
+.home-room-photo-card{
+  min-width:0 !important;
+  width:100% !important;
+  border-radius:10px !important;
+}
+
+.reference-room-photo{
+  height:58px !important;
+}
+
+.home-room-photo-card>b{
+  display:block !important;
+  font-size:8px !important;
+  line-height:10px !important;
+  padding:3px 4px 0 !important;
+  white-space:nowrap !important;
+}
+
+.home-room-photo-card>small{
+  display:block !important;
+  font-size:6px !important;
+  line-height:8px !important;
+  padding:1px 4px 4px !important;
+  white-space:nowrap !important;
+}
+
+/* BOTTOM NAV — stays fixed and compact */
+main>nav{
+  height:66px !important;
+  min-height:66px !important;
+  padding:5px 7px !important;
+  border-radius:20px !important;
+}
+
+main>nav button{
+  height:56px !important;
+  gap:2px !important;
+}
+
+main>nav .bottom-nav-icon{
+  width:22px !important;
+  height:22px !important;
+}
+
+main>nav button span{
+  font-size:9px !important;
+  line-height:11px !important;
+}
+
+/* IMPORTANT: no dashboard scrolling */
+html,body,#root{
+  overflow:hidden !important;
+}
+
+main{
+  overflow:hidden !important;
+}
+
+/* Small phone */
+@media(max-width:380px){
+  .khushi-home-dashboard{
+    padding-left:8px !important;
+    padding-right:8px !important;
+  }
+
+  .reference-hero-card{
+    height:134px !important;
+    min-height:134px !important;
+  }
+
+  .reference-room-photo{
+    height:55px !important;
+  }
+}
+
+
+/* Final dashboard room-card visibility */
+.reference-room-photo{
+  height:82px !important;
+}
+
+.home-room-photo-card{
+  min-height:0 !important;
+}
+
+.home-room-photo-card>b{
+  display:block !important;
+  margin-top:8px !important;
+  white-space:nowrap !important;
+}
+
+.home-room-photo-card>small{
+  display:flex !important;
+  align-items:center !important;
+  margin-top:4px !important;
+}
+
+.khushi-home-dashboard{
+  padding-bottom:125px !important;
+}
+
+/* Final dashboard cleanup */
+.reference-hero-card .my-home-title span{
+  display:none !important;
+}
+
+.reference-control > i{
+  display:none !important;
+}
+
+.home-room-photo-card{
+  overflow:visible !important;
+}
+
+.home-room-photo-card b,
+.home-room-photo-card small{
+  position:relative !important;
+  z-index:5 !important;
+}
+
+.home-rooms-row{
+  padding-bottom:145px !important;
+}
+
+
+/* ROOM PHOTOS + NAMES — final visibility fix */
+.home-rooms-row{
+  overflow-x:auto !important;
+  overflow-y:visible !important;
+  padding-bottom:155px !important;
+}
+
+.home-room-photo-card{
+  height:auto !important;
+  min-height:175px !important;
+  overflow:visible !important;
+  position:relative !important;
+  background:#fff !important;
+  border-radius:18px !important;
+}
+
+.home-room-photo-card .room-photo{
+  display:block !important;
+  width:100% !important;
+  height:105px !important;
+  object-fit:cover !important;
+  border-radius:18px 18px 0 0 !important;
+}
+
+.home-room-photo-card b{
+  display:block !important;
+  position:relative !important;
+  z-index:10 !important;
+  margin:8px 10px 0 !important;
+  color:#0d294b !important;
+  font-size:14px !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+}
+
+.home-room-photo-card small{
+  display:flex !important;
+  position:relative !important;
+  z-index:10 !important;
+  align-items:center !important;
+  gap:5px !important;
+  margin:5px 10px 10px !important;
+  color:#60738a !important;
+  font-size:11px !important;
+  white-space:nowrap !important;
+}
+
+
+/* FINAL REFERENCE FIT — room names visible */
+.rooms-heading{
+  margin-top:8px !important;
+  margin-bottom:10px !important;
+}
+
+.home-rooms-row{
+  gap:8px !important;
+  padding-bottom:145px !important;
+}
+
+.home-room-photo-card{
+  min-height:142px !important;
+  height:142px !important;
+  border-radius:16px !important;
+}
+
+.home-room-photo-card .room-photo{
+  height:82px !important;
+  border-radius:16px 16px 0 0 !important;
+}
+
+.home-room-photo-card b{
+  margin:6px 8px 0 !important;
+  font-size:13px !important;
+  line-height:16px !important;
+}
+
+.home-room-photo-card small{
+  margin:3px 8px 7px !important;
+  font-size:10px !important;
+  line-height:14px !important;
+}
+
+
+/* Keep room names above bottom navigation */
+.home-rooms-row{
+  position:relative !important;
+  z-index:20 !important;
+  padding-bottom:165px !important;
+}
+
+.home-room-photo-card{
+  position:relative !important;
+  z-index:21 !important;
+}
+
+.home-room-photo-card b,
+.home-room-photo-card small{
+  position:relative !important;
+  z-index:22 !important;
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+
+/* FINAL COMPACT MOBILE DASHBOARD */
+@media(max-width:520px){
+
+  .khushi-home-dashboard{
+    padding-top:4px !important;
+    padding-bottom:125px !important;
+  }
+
+  .khushi-welcome-header{
+    padding-bottom:8px !important;
+  }
+
+  .reference-hero-card{
+    height:134px !important;
+    min-height:134px !important;
+  }
+
+  .home-section-title{
+    margin-top:18px !important;
+    margin-bottom:8px !important;
+  }
+
+  .quick-control-grid{
+    gap:9px !important;
+  }
+
+  .quick-control{
+    min-height:88px !important;
+    padding:11px !important;
+  }
+
+  .rooms-heading{
+    margin-top:14px !important;
+    margin-bottom:8px !important;
+  }
+
+  .home-rooms-row{
+    gap:7px !important;
+    padding-bottom:145px !important;
+  }
+
+  .home-room-photo-card{
+    min-height:132px !important;
+    height:132px !important;
+  }
+
+  .home-room-photo-card .room-photo{
+    height:72px !important;
+  }
+
+  .home-room-photo-card b{
+    margin:5px 7px 0 !important;
+    font-size:12px !important;
+    line-height:15px !important;
+  }
+
+  .home-room-photo-card small{
+    margin:2px 7px 5px !important;
+    font-size:9px !important;
+    line-height:12px !important;
+  }
+}
+
+
+/* KHUSHI_REFERENCE_FINAL_LAYOUT */
+
+.khushi-home-dashboard{
+  width:100%;
+  max-width:720px;
+  margin:0 auto;
+  padding:24px 26px 125px;
+  box-sizing:border-box;
+  background:#f4f7fc;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.khushi-welcome-header{
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-height:116px;
+  gap:18px;
+  margin-bottom:12px;
+}
+
+.reference-logo-image{
+  width:136px;
+  height:112px;
+  object-fit:contain;
+  flex:0 0 136px;
+}
+
+.welcome-text{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.welcome-text small{
+  font-size:18px;
+  line-height:1.2;
+  color:#7c8797;
+  margin-bottom:3px;
+}
+
+.welcome-text b{
+  font-size:31px;
+  line-height:1.15;
+  font-weight:800;
+  color:#12345a;
+  white-space:nowrap;
+}
+
+.welcome-text span{
+  font-size:16px;
+  line-height:1.3;
+  color:#7a8494;
+  margin-top:12px;
+  white-space:nowrap;
+}
+
+.welcome-bell{
+  width:64px;
+  height:64px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:#1688df;
+  display:grid;
+  place-items:center;
+  flex:0 0 64px;
+  box-shadow:0 8px 24px rgba(20,55,90,.08);
+  position:relative;
+}
+
+.welcome-bell svg{
+  width:31px;
+  height:31px;
+}
+
+.welcome-bell span{
+  position:absolute;
+  top:4px;
+  right:4px;
+  min-width:17px;
+  height:17px;
+  padding:0 4px;
+  border-radius:20px;
+  background:#1688df;
+  color:white;
+  font-size:10px;
+  display:grid;
+  place-items:center;
+}
+
+/* MY HOME */
+
+.reference-hero-card{
+  width:100%;
+  height:274px;
+  min-height:274px;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  background:#07539a;
+  box-shadow:0 10px 30px rgba(15,65,110,.12);
+  margin:0 0 45px;
+}
+
+.reference-hero-image{
+  position:absolute;
+  right:0;
+  top:0;
+  width:52%;
+  height:100%;
+  background-image:url('/dashboard-reference/home-hero.jpg');
+  background-size:cover;
+  background-position:center;
+}
+
+.reference-hero-image:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    #07539a 0%,
+    rgba(7,83,154,.82) 12%,
+    rgba(7,83,154,.15) 48%,
+    rgba(7,83,154,0) 100%
+  );
+}
+
+.reference-hero-card .my-home-info{
+  position:relative;
+  z-index:2;
+  width:55%;
+  padding:60px 0 25px 38px;
+  box-sizing:border-box;
+  color:#fff;
+}
+
+.reference-hero-card .my-home-title{
+  font-size:36px;
+  line-height:1.1;
+  font-weight:800;
+  color:#fff;
+  margin-bottom:13px;
+}
+
+.reference-hero-card .my-home-status{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:24px;
+  line-height:1.2;
+  color:#fff;
+}
+
+.reference-hero-card .my-home-status i{
+  display:block;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#12d66b;
+  flex:0 0 22px;
+}
+
+.reference-hero-card .my-home-status b{
+  font-size:24px;
+  color:#fff;
+}
+
+.reference-hero-card .my-home-info p{
+  margin:10px 0 0;
+  font-size:16px;
+  color:rgba(255,255,255,.9);
+  white-space:nowrap;
+}
+
+/* removes accidental stray text such as "" */
+.reference-hero-card .my-home-info:after{
+  content:none !important;
+  display:none !important;
+}
+
+/* SECTION TITLES */
+
+.home-section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:0 8px 20px;
+}
+
+.home-section-title h2{
+  margin:0;
+  color:#12345a;
+  font-size:30px;
+  line-height:1.15;
+  font-weight:800;
+}
+
+.home-section-title button{
+  border:0;
+  background:none;
+  color:#1789df;
+  font-size:17px;
+  font-weight:800;
+  padding:5px 0;
+}
+
+/* QUICK CONTROLS */
+
+.quick-control-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:100%;
+  margin-bottom:48px;
+}
+
+.quick-control.reference-control{
+  min-width:0;
+  height:114px;
+  border-radius:19px;
+  border:2px solid rgba(255,255,255,.9);
+  background:#edf4fc;
+  box-shadow:
+    0 7px 18px rgba(25,70,110,.08),
+    inset 0 0 0 1px rgba(160,190,220,.18);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:15px 18px;
+  box-sizing:border-box;
+  text-align:left;
+}
+
+.quick-control.reference-control.green{
+  background:#edf9f2;
+}
+
+.quick-control.reference-control > span{
+  width:60px;
+  height:60px;
+  min-width:60px;
+  border-radius:50%;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+.quick-control.reference-control > span img{
+  width:43px;
+  height:43px;
+  object-fit:contain;
+}
+
+.quick-control.reference-control > div{
+  min-width:0;
+  flex:1;
+}
+
+.quick-control.reference-control > div b{
+  display:block;
+  font-size:19px;
+  line-height:1.2;
+  color:#173a5f;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.quick-control.reference-control > div small{
+  display:block;
+  margin-top:7px;
+  font-size:14px;
+  color:#718096;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.quick-control.reference-control > strong{
+  font-size:29px;
+  line-height:1;
+  color:#778797;
+  font-weight:300;
+}
+
+/* ROOMS */
+
+.rooms-heading{
+  margin-top:0;
+  margin-bottom:24px;
+}
+
+.home-rooms-row{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:100%;
+  margin-bottom:12px;
+  overflow:visible !important;
+}
+
+.home-room-photo-card{
+  display:block;
+  width:100%;
+  min-width:0;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:15px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 7px 18px rgba(25,70,110,.09);
+  text-align:left;
+}
+
+.home-room-photo-card .room-photo{
+  width:100%;
+  height:125px !important;
+  overflow:hidden;
+  background:#ddd;
+}
+
+.home-room-photo-card .room-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.home-room-photo-card>b{
+  display:block;
+  padding:11px 10px 3px;
+  color:#173a5f;
+  font-size:15px;
+  line-height:1.2;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.home-room-photo-card>small{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:0 10px 11px;
+  color:#7b8795;
+  font-size:11px;
+}
+
+.home-room-photo-card>small i{
+  display:none;
+}
+
+.home-room-photo-card>small strong{
+  display:none;
+}
+
+/* BOTTOM NAV */
+
+main>nav{
+  position:fixed !important;
+  z-index:100 !important;
+  left:12px !important;
+  right:12px !important;
+  bottom:12px !important;
+  width:auto !important;
+  max-width:696px;
+  margin:0 auto !important;
+  height:92px !important;
+  border-radius:34px !important;
+  background:rgba(255,255,255,.97) !important;
+  border:1px solid #dce4ec !important;
+  box-shadow:0 8px 30px rgba(25,60,100,.12) !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  padding:8px 8px 5px !important;
+  box-sizing:border-box !important;
+}
+
+main>nav button{
+  border:0 !important;
+  background:transparent !important;
+  color:#8a96a5 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:5px !important;
+  border-radius:24px !important;
+}
+
+main>nav button.active{
+  color:#1688df !important;
+  background:transparent !important;
+}
+
+main>nav .bottom-nav-icon{
+  width:31px !important;
+  height:31px !important;
+  stroke-width:2.2 !important;
+}
+
+main>nav button span{
+  font-size:15px !important;
+  line-height:1.1 !important;
+  font-weight:700 !important;
+}
+
+/* MOBILE REFERENCE SIZE */
+
+@media (max-width:600px){
+  .khushi-home-dashboard{
+    max-width:none;
+    padding:18px 26px 122px;
+  }
+
+  .khushi-welcome-header{
+    min-height:106px;
+    gap:12px;
+  }
+
+  .reference-logo-image{
+    width:128px;
+    height:104px;
+    flex-basis:128px;
+  }
+
+  .welcome-text small{
+    font-size:16px;
+  }
+
+  .welcome-text b{
+    font-size:27px;
+  }
+
+  .welcome-text span{
+    font-size:14px;
+    margin-top:9px;
+  }
+
+  .welcome-bell{
+    width:58px;
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .reference-hero-card{
+    height:254px;
+    min-height:254px;
+    border-radius:22px;
+    margin-bottom:43px;
+  }
+
+  .reference-hero-card .my-home-info{
+    width:55%;
+    padding:58px 0 20px 36px;
+  }
+
+  .reference-hero-card .my-home-title{
+    font-size:34px;
+  }
+
+  .reference-hero-card .my-home-status{
+    font-size:23px;
+  }
+
+  .reference-hero-card .my-home-status b{
+    font-size:23px;
+  }
+
+  .reference-hero-card .my-home-info p{
+    font-size:15px;
+  }
+
+  .home-section-title{
+    margin-left:7px;
+    margin-right:7px;
+  }
+
+  .home-section-title h2{
+    font-size:29px;
+  }
+
+  .home-section-title button{
+    font-size:16px;
+  }
+
+  .quick-control-grid{
+    gap:12px !important;
+    margin-bottom:46px;
+  }
+
+  .quick-control.reference-control{
+    height:111px;
+    padding:14px 14px;
+    gap:11px;
+    border-radius:18px;
+  }
+
+  .quick-control.reference-control > span{
+    width:55px;
+    height:55px;
+    min-width:55px;
+  }
+
+  .quick-control.reference-control > span img{
+    width:40px;
+    height:40px;
+  }
+
+  .quick-control.reference-control > div b{
+    font-size:17px;
+  }
+
+  .quick-control.reference-control > div small{
+    font-size:13px;
+    margin-top:6px;
+  }
+
+  .quick-control.reference-control > strong{
+    font-size:25px;
+  }
+
+  .home-rooms-row{
+    gap:12px !important;
+  }
+
+  .home-room-photo-card .room-photo{
+    height:112px !important;
+  }
+
+  .home-room-photo-card>b{
+    font-size:14px;
+    padding:9px 9px 3px;
+  }
+
+  .home-room-photo-card>small{
+    font-size:10px;
+    padding:0 9px 9px;
+  }
+
+  main>nav{
+    left:9px !important;
+    right:9px !important;
+    bottom:10px !important;
+    height:88px !important;
+    border-radius:31px !important;
+  }
+
+  main>nav .bottom-nav-icon{
+    width:29px !important;
+    height:29px !important;
+  }
+
+  main>nav button span{
+    font-size:14px !important;
+  }
+}
+
+
+/* FINAL SMALL FIX - ROOMS VISIBILITY */
+.khushi-home-dashboard{
+  padding-bottom:145px !important;
+}
+
+.home-rooms-row{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:12px !important;
+  overflow:visible !important;
+  margin-bottom:20px !important;
+}
+
+.home-room-photo-card{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+.home-room-photo-card .room-photo{
+  display:block !important;
+  height:105px !important;
+  overflow:hidden !important;
+}
+
+.home-room-photo-card .room-photo img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+.home-room-photo-card>b{
+  display:block !important;
+  visibility:visible !important;
+  padding:9px 8px 3px !important;
+  font-size:14px !important;
+  color:#173a5f !important;
+}
+
+.home-room-photo-card>small{
+  display:flex !important;
+  visibility:visible !important;
+  padding:0 8px 9px !important;
+  font-size:10px !important;
+}
+
+main>nav{
+  bottom:10px !important;
+  height:82px !important;
+}
+
+/* FINAL REFERENCE FIX - DO NOT CHANGE HERO */
+
+@media (max-width:600px){
+
+  /* Quick Controls exactly compact like reference */
+  .quick-control-grid{
+    gap:12px !important;
+    margin-bottom:42px !important;
+  }
+
+  .quick-control.reference-control{
+    height:112px !important;
+    min-height:112px !important;
+    max-height:112px !important;
+    padding:12px 14px !important;
+    border-radius:18px !important;
+  }
+
+  .quick-control.reference-control > span{
+    width:58px !important;
+    height:58px !important;
+    min-width:58px !important;
+  }
+
+  .quick-control.reference-control > span img{
+    width:42px !important;
+    height:42px !important;
+  }
+
+  .quick-control.reference-control > div b{
+    font-size:17px !important;
+  }
+
+  .quick-control.reference-control > div small{
+    font-size:12px !important;
+    margin-top:5px !important;
+  }
+
+  /* Rooms must remain visible */
+  .rooms-heading{
+    margin-top:0 !important;
+    margin-bottom:18px !important;
+  }
+
+  .home-rooms-row{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:12px !important;
+    overflow:visible !important;
+    margin-bottom:20px !important;
+  }
+
+  .home-room-photo-card{
+    display:block !important;
+    visibility:visible !important;
+  }
+
+  .home-room-photo-card .room-photo{
+    height:105px !important;
+  }
+
+  .home-room-photo-card>b{
+    font-size:13px !important;
+    padding:9px 8px 3px !important;
+    display:block !important;
+  }
+
+  .home-room-photo-card>small{
+    display:flex !important;
+    font-size:10px !important;
+    padding:0 8px 9px !important;
+  }
+
+  /* Bottom navigation: remove old transform that was hiding 2 buttons */
+  main>nav{
+    left:9px !important;
+    right:9px !important;
+    width:auto !important;
+    max-width:none !important;
+    transform:none !important;
+    margin:0 !important;
+    bottom:10px !important;
+    height:88px !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,1fr) !important;
+  }
+
+  main>nav button{
+    min-width:0 !important;
+    width:auto !important;
+  }
+
+}
+
+/* ===== KHUSHI HOMES FINAL REFERENCE LAYOUT ===== */
+
+.khushi-home-dashboard{
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:100% !important;
+  padding:14px 26px 115px !important;
+  overflow:visible !important;
+}
+
+/* Header */
+.khushi-home-dashboard .khushi-welcome-header{
+  height:82px !important;
+  min-height:82px !important;
+  margin-bottom:10px !important;
+}
+
+/* My Home */
+.khushi-home-dashboard .reference-hero-card{
+  height:190px !important;
+  min-height:190px !important;
+  max-height:190px !important;
+  margin-bottom:40px !important;
+  overflow:hidden !important;
+}
+
+/* Quick controls */
+.khushi-home-dashboard .quick-control-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:11px !important;
+  margin-bottom:42px !important;
+}
+
+.khushi-home-dashboard .quick-control-grid .quick-control{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:112px !important;
+  min-height:112px !important;
+  max-height:112px !important;
+  padding:12px 14px !important;
+  margin:0 !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+.khushi-home-dashboard .quick-control > span{
+  width:58px !important;
+  height:58px !important;
+  min-width:58px !important;
+  flex:0 0 58px !important;
+}
+
+.khushi-home-dashboard .quick-control > span img{
+  width:42px !important;
+  height:42px !important;
+  object-fit:contain !important;
+}
+
+.khushi-home-dashboard .quick-control > div{
+  min-width:0 !important;
+  flex:1 !important;
+}
+
+.khushi-home-dashboard .quick-control > div b{
+  display:block !important;
+  font-size:17px !important;
+  line-height:1.15 !important;
+  white-space:nowrap !important;
+}
+
+.khushi-home-dashboard .quick-control > div small{
+  display:block !important;
+  font-size:12px !important;
+  line-height:1.15 !important;
+  margin-top:5px !important;
+  white-space:nowrap !important;
+}
+
+.khushi-home-dashboard .quick-control > strong{
+  flex:0 0 auto !important;
+  font-size:22px !important;
+}
+
+/* Rooms */
+.khushi-home-dashboard .rooms-heading{
+  display:flex !important;
+  margin:0 7px 18px !important;
+}
+
+.khushi-home-dashboard .home-rooms-row{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:11px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+
+.khushi-home-dashboard .home-room-photo-card{
+  display:block !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  border-radius:13px !important;
+}
+
+.khushi-home-dashboard .home-room-photo-card .room-photo{
+  width:100% !important;
+  height:82px !important;
+  min-height:82px !important;
+  max-height:82px !important;
+  overflow:hidden !important;
+}
+
+.khushi-home-dashboard .home-room-photo-card .room-photo img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+.khushi-home-dashboard .home-room-photo-card>b{
+  display:block !important;
+  padding:8px 7px 4px !important;
+  font-size:12px !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+
+.khushi-home-dashboard .home-room-photo-card>small{
+  display:block !important;
+  padding:0 7px 8px !important;
+  font-size:9px !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+}
+
+/* Bottom navigation */
+main > nav{
+  position:fixed !important;
+  left:10px !important;
+  right:10px !important;
+  bottom:10px !important;
+  width:auto !important;
+  height:82px !important;
+  min-height:82px !important;
+  max-height:82px !important;
+  padding:5px !important;
+  margin:0 !important;
+  transform:none !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,1fr) !important;
+  box-sizing:border-box !important;
+  z-index:99999 !important;
+  overflow:hidden !important;
+}
+
+main > nav button{
+  width:100% !important;
+  min-width:0 !important;
+  height:70px !important;
+  padding:4px !important;
+  margin:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+}
+
+main > nav button .bottom-nav-icon{
+  width:28px !important;
+  height:28px !important;
+  flex:none !important;
+}
+
+main > nav button span{
+  font-size:13px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+
+/* Mobile reference proportions */
+@media (max-width:600px){
+
+  .khushi-home-dashboard{
+    padding-left:26px !important;
+    padding-right:26px !important;
+    padding-bottom:115px !important;
+  }
+
+  .khushi-home-dashboard .quick-control-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+.khushi-home-dashboard{
+  width:min(650px,calc(100vw - 52px)) !important;
+  max-width:650px !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  padding:18px 0 155px !important;
+  box-sizing:border-box !important;
+}
+
+.khushi-home-dashboard .khushi-welcome-header{
+  width:100% !important;
+  height:70px !important;
+  min-height:70px !important;
+  margin:0 0 18px !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:140px minmax(0,1fr) 54px !important;
+  gap:10px !important;
+  align-items:center !important;
+}
+
+.khushi-home-dashboard .reference-logo-image{
+  width:140px !important;
+  height:70px !important;
+  object-fit:contain !important;
+}
+
+.khushi-home-dashboard .welcome-text{
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+.khushi-home-dashboard .welcome-text b{
+  display:block !important;
+  font-size:25px !important;
+  white-space:nowrap !important;
+}
+
+.khushi-home-dashboard .welcome-text span{
+  display:block !important;
+  font-size:13px !important;
+  white-space:nowrap !important;
+}
+
+.khushi-home-dashboard .welcome-bell{
+  width:54px !important;
+  height:54px !important;
+  min-width:54px !important;
+}
+
+.khushi-home-dashboard .reference-hero-card{
+  width:100% !important;
+  height:274px !important;
+  min-height:274px !important;
+  max-height:274px !important;
+  margin:0 0 43px !important;
+  border-radius:20px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:#07569f !important;
+}
+
+.khushi-home-dashboard .reference-hero-image{
+  position:absolute !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:50% !important;
+  width:50% !important;
+  height:100% !important;
+  background:url("/dashboard-reference/hero-house.jpg") center/cover no-repeat !important;
+}
+
+.khushi-home-dashboard .reference-hero-card .my-home-info{
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:55% !important;
+  height:100% !important;
+  padding:78px 0 0 38px !important;
+}
+
+.khushi-home-dashboard .quick-control-grid{
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:11px !important;
+  margin:0 0 43px !important;
+}
+
+.khushi-home-dashboard .quick-control{
+  width:100% !important;
+  min-width:0 !important;
+  height:112px !important;
+  min-height:112px !important;
+  padding:12px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  overflow:hidden !important;
+}
+
+.khushi-home-dashboard .quick-control > span{
+  width:62px !important;
+  height:62px !important;
+  min-width:62px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:16px !important;
+}
+
+.khushi-home-dashboard .quick-control > span img{
+  width:48px !important;
+  height:48px !important;
+  object-fit:contain !important;
+}
+
+.khushi-home-dashboard .quick-control > div{
+  min-width:0 !important;
+  flex:1 !important;
+}
+
+.khushi-home-dashboard .quick-control b{
+  display:block !important;
+  font-size:17px !important;
+  white-space:nowrap !important;
+}
+
+.khushi-home-dashboard .quick-control small{
+  display:block !important;
+  font-size:11px !important;
+  white-space:nowrap !important;
+}
+
+.khushi-home-dashboard .quick-control strong{
+  flex:0 0 auto !important;
+  font-size:25px !important;
+}
+
+.khushi-home-dashboard .home-rooms-row{
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:11px !important;
+}
+
+.khushi-home-dashboard .home-room-photo-card{
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+.khushi-home-dashboard .reference-room-photo{
+  width:100% !important;
+  height:132px !important;
+  overflow:hidden !important;
+  border-radius:16px !important;
+}
+
+.khushi-home-dashboard .reference-room-photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+
+main > nav{
+  position:fixed !important;
+  left:12px !important;
+  right:12px !important;
+  bottom:10px !important;
+  width:auto !important;
+  height:122px !important;
+  min-height:122px !important;
+  max-height:122px !important;
+  padding:5px !important;
+  border-radius:34px !important;
+  z-index:10000 !important;
+  overflow:hidden !important;
+}
+
+main > nav button{
+  height:112px !important;
+  padding:8px 2px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+}
+
+@media(max-width:700px){
+  .khushi-home-dashboard{
+    width:calc(100vw - 52px) !important;
+    max-width:650px !important;
+  }
+}
+
+/* FINAL REFERENCE SIZE FIX */
+/* FINAL DASHBOARD OVERRIDE */
+.khushi-home-dashboard{
+  width:calc(100vw - 52px)!important;
+  max-width:650px!important;
+  margin:0 auto!important;
+  padding:18px 0 150px!important;
+}
+
+.khushi-home-dashboard .khushi-welcome-header{
+  height:70px!important;
+  min-height:70px!important;
+  margin-bottom:18px!important;
+  grid-template-columns:140px minmax(0,1fr) 54px!important;
+  column-gap:10px!important;
+}
+
+.khushi-home-dashboard .reference-logo-image{width:140px!important;height:70px!important}
+.khushi-home-dashboard .welcome-text b{font-size:25px!important}
+.khushi-home-dashboard .welcome-text span{font-size:13px!important}
+.khushi-home-dashboard .welcome-bell{width:54px!important;height:54px!important}
+
+.khushi-home-dashboard .reference-hero-card{
+  width:100%!important;
+  height:274px!important;
+  min-height:274px!important;
+  max-height:274px!important;
+  margin-bottom:43px!important;
+  border-radius:20px!important;
+}
+
+.khushi-home-dashboard .reference-hero-card .my-home-info{
+  padding:78px 0 0 38px!important;
+}
+
+.khushi-home-dashboard .quick-control-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:11px!important;
+  margin-bottom:43px!important;
+}
+
+.khushi-home-dashboard .quick-control{
+  height:112px!important;
+  min-height:112px!important;
+  padding:12px!important;
+  border-radius:18px!important;
+  gap:10px!important;
+}
+
+.khushi-home-dashboard .quick-control > span{
+  width:62px!important;height:62px!important;min-width:62px!important;
+}
+.khushi-home-dashboard .quick-control > span img{width:48px!important;height:48px!important}
+.khushi-home-dashboard .quick-control b{font-size:17px!important}
+.khushi-home-dashboard .quick-control small{font-size:11px!important}
+.khushi-home-dashboard .quick-control strong{font-size:25px!important}
+
+.khushi-home-dashboard .home-rooms-row{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:11px!important;
+}
+.khushi-home-dashboard .reference-room-photo{
+  height:132px!important;
+  border-radius:16px!important;
+}
+.khushi-home-dashboard .reference-room-photo img{
+  width:100%!important;height:100%!important;object-fit:cover!important;
+}
+
+main > nav{
+  left:12px!important;right:12px!important;bottom:10px!important;
+  height:122px!important;min-height:122px!important;max-height:122px!important;
+  padding:5px!important;border-radius:34px!important;
+}
+main > nav button{
+  height:112px!important;
+  padding:8px 2px!important;
+  gap:8px!important;
+}
+
+/* FINAL MOBILE REFERENCE — 2x DISPLAY */
+@media(max-width:700px){
+  .khushi-home-dashboard{
+    width:calc(100vw - 26px)!important;
+    max-width:325px!important;
+    margin:0 auto!important;
+    padding:9px 0 75px!important;
+  }
+
+  .khushi-home-dashboard .khushi-welcome-header{
+    height:35px!important;
+    min-height:35px!important;
+    margin-bottom:9px!important;
+    grid-template-columns:70px minmax(0,1fr) 27px!important;
+    column-gap:5px!important;
+  }
+
+  .khushi-home-dashboard .reference-logo-image{
+    width:70px!important;
+    height:35px!important;
+  }
+
+  .khushi-home-dashboard .welcome-text b{font-size:12.5px!important}
+  .khushi-home-dashboard .welcome-text span{font-size:6.5px!important}
+  .khushi-home-dashboard .welcome-bell{
+    width:27px!important;
+    height:27px!important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card{
+    height:137px!important;
+    min-height:137px!important;
+    max-height:137px!important;
+    margin-bottom:22px!important;
+    border-radius:10px!important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-info{
+    padding:39px 0 0 19px!important;
+  }
+
+  .khushi-home-dashboard .my-home-title{font-size:18px!important}
+  .khushi-home-dashboard .my-home-status{font-size:11px!important}
+  .khushi-home-dashboard .my-home-info p{font-size:6px!important}
+
+  .khushi-home-dashboard .home-section-title{
+    margin-bottom:8px!important;
+  }
+  .khushi-home-dashboard .home-section-title h2{
+    font-size:16px!important;
+  }
+  .khushi-home-dashboard .home-section-title button{
+    font-size:8px!important;
+  }
+
+  .khushi-home-dashboard .quick-control-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:6px!important;
+    margin-bottom:22px!important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    height:56px!important;
+    min-height:56px!important;
+    padding:6px!important;
+    border-radius:9px!important;
+    gap:5px!important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:31px!important;
+    height:31px!important;
+    min-width:31px!important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:24px!important;
+    height:24px!important;
+  }
+
+  .khushi-home-dashboard .quick-control b{font-size:8.5px!important}
+  .khushi-home-dashboard .quick-control small{font-size:5.5px!important}
+  .khushi-home-dashboard .quick-control strong{font-size:12px!important}
+
+  .khushi-home-dashboard .home-rooms-row{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:6px!important;
+  }
+
+  .khushi-home-dashboard .reference-room-photo{
+    height:66px!important;
+    border-radius:8px!important;
+  }
+
+  main > nav{
+    left:12px!important;
+    right:12px!important;
+    bottom:5px!important;
+    height:61px!important;
+    min-height:61px!important;
+    max-height:61px!important;
+    padding:2px!important;
+    border-radius:17px!important;
+  }
+
+  main > nav button{
+    height:56px!important;
+    padding:4px 1px!important;
+    gap:4px!important;
+    font-size:7px!important;
+  }
+}
+
+@media(max-width:700px){
+
+  .khushi-home-dashboard .khushi-welcome-header{
+    height:70px!important;
+    min-height:70px!important;
+    grid-template-columns:140px minmax(0,1fr) 54px!important;
+  }
+
+  .khushi-home-dashboard .reference-logo-image{
+    width:140px!important;
+    height:70px!important;
+  }
+
+  .khushi-home-dashboard .welcome-text b{
+    font-size:25px!important;
+  }
+
+  .khushi-home-dashboard .welcome-text span{
+    font-size:13px!important;
+  }
+
+  .khushi-home-dashboard .welcome-bell{
+    width:54px!important;
+    height:54px!important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    height:56px!important;
+    min-height:56px!important;
+    max-height:56px!important;
+  }
+
+  .khushi-home-dashboard .quick-control-grid{
+    gap:6px!important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    margin-bottom:20px!important;
+  }
+
+  main > nav{
+    height:61px!important;
+    min-height:61px!important;
+    max-height:61px!important;
+  }
+}
+
+/* FINAL TEXT VISIBILITY FIX */
+.khushi-home-dashboard .welcome-text{
+  width:100%!important;
+  min-width:0!important;
+  overflow:visible!important;
+}
+
+.khushi-home-dashboard .welcome-text b,
+.khushi-home-dashboard .welcome-text span{
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+
+.khushi-home-dashboard .quick-control > div{
+  min-width:0!important;
+  width:auto!important;
+  overflow:visible!important;
+}
+
+.khushi-home-dashboard .quick-control b,
+.khushi-home-dashboard .quick-control small{
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+
+.khushi-home-dashboard .quick-control strong{
+  margin-left:auto!important;
+}
+
+.khushi-home-dashboard{
+  padding-bottom:180px!important;
+}
+
+main > nav{
+  bottom:10px!important;
+}
+
+
+
+/* KHUSHI HOMES REFERENCE DASHBOARD - FINAL */
+.final-dashboard{
+width:min(650px,calc(100vw - 28px));margin:0 auto;padding:8px 0 105px;
+background:#f7fbff;color:#173b5d;
+}
+.final-header{height:58px;display:flex;align-items:center;justify-content:space-between}
+.final-header .khushi-logo{display:flex;align-items:center;gap:8px}
+.final-header .khushi-logo-mark{width:38px;height:38px;border-radius:11px;background:#1679d3;color:#fff;display:grid;place-items:center;position:relative}
+.final-header .khushi-logo-mark svg{width:21px}
+.final-header .logo-leaf{position:absolute;right:4px;top:4px;color:#55d16c;font-size:8px}
+.final-header .khushi-logo-text{display:flex;align-items:center;gap:3px;font-size:15px}
+.final-header .khushi-logo-text b{color:#126dbd}.final-header .khushi-logo-text strong{color:#39a95d}
+.final-header .khushi-logo-text small{display:block;font-size:7px}
+.final-header-actions button{width:42px;height:42px;border:1px solid #e1ebf4;border-radius:50%;background:#fff;color:#2175bb;display:grid;place-items:center;box-shadow:0 4px 14px rgba(28,73,110,.08)}
+.final-header-actions svg{width:20px}
+.final-welcome{margin:7px 0 16px}
+.final-welcome span{display:block;font-size:13px;color:#8395a5}
+.final-welcome h1{margin:2px 0 4px;font-size:25px;line-height:1.12;color:#153b60;font-weight:800}
+.final-welcome p{margin:0;color:#7d8e9e;font-size:13px}
+.final-hero{width:100%;height:274px;padding:0;border:0;border-radius:20px;overflow:hidden;background:#1479d4;color:#fff;display:grid;grid-template-columns:48% 52%;box-shadow:0 10px 28px rgba(18,112,194,.18);text-align:left}
+.final-hero-copy{align-self:center;padding:28px 8px 28px 26px}
+.final-hero-copy h2{margin:0 0 22px;font-size:26px;font-weight:800}
+.online-row{display:flex;align-items:center;gap:8px;font-size:16px}
+.online-row i{width:8px;height:8px;border-radius:50%;background:#55d56e}
+.online-row b{font-size:16px}
+.final-hero-copy p{margin:10px 0 0;max-width:175px;color:#e1f0ff;font-size:12px;line-height:1.45}
+.final-house-photo{height:100%;background:url('/dashboard-reference/hero-house.jpg') center/cover no-repeat}
+.final-section-head{display:flex;align-items:center;justify-content:space-between;margin:25px 2px 11px}
+.final-section-head h2{margin:0;font-size:19px;font-weight:800;color:#183c5e}
+.final-section-head button{border:0;background:transparent;color:#1675c4;font-size:13px;font-weight:700}
+.final-controls{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.final-control{height:112px;border:1px solid #e3edf5;border-radius:16px;background:#fff;padding:14px 11px;display:grid;grid-template-columns:40px minmax(0,1fr) 10px;align-items:center;gap:9px;text-align:left;box-shadow:0 5px 17px rgba(25,66,98,.07)}
+.final-control.light{background:#effaf2;border-color:#d8eedf}
+.final-control-icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#e8f5eb;color:#39a65b}
+.final-control-icon svg{width:21px;height:21px}
+.final-control-icon.fan,.final-control-icon.camera,.final-control-icon.lock,.final-control-icon.wifi,.final-control-icon.scenes{background:#eaf4fd;color:#267fc4}
+.final-control b{display:block;font-size:14px;color:#173e61}
+.final-control small{display:block;margin-top:4px;font-size:11px;color:#8193a3;white-space:nowrap}
+.final-control strong{font-size:22px;font-weight:400;color:#8ca0ae}
+.rooms-head{margin-top:27px}
+.final-rooms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.final-room{min-width:0;border:1px solid #e2ebf3;border-radius:15px;padding:0 0 10px;background:#fff;overflow:hidden;text-align:left;box-shadow:0 5px 15px rgba(25,66,98,.07)}
+.final-room-photo{height:116px;background-position:center;background-size:cover;background-repeat:no-repeat}
+.final-room:nth-child(1) .final-room-photo{background-image:url('/dashboard-reference/room-bedroom1.jpg')!important}
+.final-room:nth-child(2) .final-room-photo{background-image:url('/dashboard-reference/room-bedroom2.jpg')!important}
+.final-room:nth-child(3) .final-room-photo{background-image:url('/dashboard-reference/room-hall.jpg')!important}
+.final-room:nth-child(4) .final-room-photo{background-image:url('/dashboard-reference/room-kitchen.jpg')!important}
+.final-room b{display:block;padding:9px 8px 0;font-size:12px;color:#173e61;white-space:nowrap}
+.final-room:after{content:'›';float:right;margin:-17px 8px 0 0;color:#8095a6;font-size:18px}
+nav{position:fixed;z-index:100;left:50%;bottom:10px;transform:translateX(-50%);width:min(650px,calc(100vw - 20px));height:82px;padding:7px 8px;border:1px solid #e2ebf3;border-radius:25px;background:#fff;box-shadow:0 12px 35px rgba(22,61,94,.18);display:grid;grid-template-columns:repeat(4,1fr)}
+nav button{border:0;background:transparent;color:#8b9aa8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px}
+nav button svg{width:21px;height:21px}
+nav button.active{color:#1676c8;font-weight:700}
+@media(max-width:520px){
+.final-dashboard{width:calc(100vw - 28px)}
+.final-hero{height:250px}
+.final-hero-copy{padding-left:19px}
+.final-hero-copy h2{font-size:23px}
+.final-control{height:108px;padding:12px 9px;grid-template-columns:38px minmax(0,1fr) 9px}
+.final-control-icon{width:38px;height:38px}
+.final-room-photo{height:92px}
+}
+
+/* ===== KHUSHI HOMES - EXACT MOBILE REFERENCE OVERRIDE ===== */
+
+@media (max-width:700px){
+
+  .khushi-home-dashboard{
+    width:100% !important;
+    max-width:none !important;
+    padding:14px 26px 105px !important;
+    box-sizing:border-box !important;
+    overflow-x:hidden !important;
+  }
+
+  /* HEADER */
+  .khushi-home-dashboard .khushi-welcome-header{
+    width:100% !important;
+    height:70px !important;
+    min-height:70px !important;
+    margin-bottom:10px !important;
+    gap:10px !important;
+  }
+
+  .khushi-home-dashboard .reference-logo-image{
+    width:140px !important;
+    height:70px !important;
+    flex:0 0 140px !important;
+    object-fit:contain !important;
+  }
+
+  .khushi-home-dashboard .welcome-text{
+    min-width:0 !important;
+  }
+
+  .khushi-home-dashboard .welcome-text b{
+    font-size:25px !important;
+    line-height:1.1 !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .welcome-text span{
+    font-size:13px !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .welcome-bell{
+    width:54px !important;
+    height:54px !important;
+    min-width:54px !important;
+    flex:0 0 54px !important;
+  }
+
+
+  /* MY HOME */
+  .khushi-home-dashboard .reference-hero-card{
+    width:100% !important;
+    height:137px !important;
+    min-height:137px !important;
+    max-height:137px !important;
+    margin:0 0 22px !important;
+    border-radius:12px !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-image{
+    left:50% !important;
+    right:0 !important;
+    width:50% !important;
+    height:100% !important;
+    background-size:cover !important;
+    background-position:center !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-info{
+    width:55% !important;
+    height:100% !important;
+    padding:39px 0 0 19px !important;
+    box-sizing:border-box !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-title{
+    font-size:18px !important;
+    line-height:1.1 !important;
+    margin-bottom:8px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-status{
+    font-size:11px !important;
+    gap:6px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-status i{
+    width:12px !important;
+    height:12px !important;
+    min-width:12px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-status b{
+    font-size:11px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-info p{
+    font-size:6px !important;
+    margin-top:5px !important;
+  }
+
+
+  /* SECTION TITLES */
+  .khushi-home-dashboard .home-section-title{
+    margin:0 7px 8px !important;
+  }
+
+  .khushi-home-dashboard .home-section-title h2{
+    font-size:16px !important;
+    line-height:1.15 !important;
+  }
+
+  .khushi-home-dashboard .home-section-title button{
+    font-size:8px !important;
+    padding:2px 0 !important;
+  }
+
+
+  /* QUICK CONTROLS - COMPACT LIKE REFERENCE */
+  .khushi-home-dashboard .quick-control-grid{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin:0 0 22px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    width:100% !important;
+    height:56px !important;
+    min-height:56px !important;
+    max-height:56px !important;
+    padding:6px 8px !important;
+    margin:0 !important;
+    border-radius:10px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:6px !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:31px !important;
+    height:31px !important;
+    min-width:31px !important;
+    flex:0 0 31px !important;
+    border-radius:50% !important;
+    display:grid !important;
+    place-items:center !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:24px !important;
+    height:24px !important;
+    object-fit:contain !important;
+  }
+
+  .khushi-home-dashboard .quick-control > div{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    display:block !important;
+    font-size:10px !important;
+    line-height:12px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    display:block !important;
+    font-size:7px !important;
+    line-height:9px !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .quick-control strong{
+    font-size:12px !important;
+  }
+
+
+  /* ROOMS */
+  .khushi-home-dashboard .rooms-heading{
+    margin-top:0 !important;
+    margin-bottom:8px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:7px !important;
+    margin:0 !important;
+    padding:0 0 10px !important;
+    overflow:visible !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card{
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    border-radius:8px !important;
+    overflow:hidden !important;
+    background:#fff !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo,
+  .khushi-home-dashboard .reference-room-photo{
+    width:100% !important;
+    height:65px !important;
+    min-height:65px !important;
+    max-height:65px !important;
+    overflow:hidden !important;
+    border-radius:8px 8px 0 0 !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo img,
+  .khushi-home-dashboard .reference-room-photo img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card>b{
+    display:block !important;
+    padding:5px 5px 5px !important;
+    font-size:8px !important;
+    line-height:10px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card>small{
+    display:none !important;
+  }
+
+
+  /* BOTTOM NAV */
+  main > nav{
+    position:fixed !important;
+    left:10px !important;
+    right:10px !important;
+    bottom:10px !important;
+    width:auto !important;
+    height:62px !important;
+    min-height:62px !important;
+    max-height:62px !important;
+    padding:3px !important;
+    margin:0 !important;
+    transform:none !important;
+    border-radius:25px !important;
+    display:grid !important;
+    grid-template-columns:repeat(4,1fr) !important;
+    box-sizing:border-box !important;
+    z-index:99999 !important;
+    overflow:hidden !important;
+  }
+
+  main > nav button{
+    width:100% !important;
+    min-width:0 !important;
+    height:56px !important;
+    padding:3px 1px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:2px !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:23px !important;
+    height:23px !important;
+  }
+
+  main > nav button span{
+    font-size:8px !important;
+    line-height:10px !important;
+  }
+
+}
+
+/* ===== END EXACT MOBILE REFERENCE OVERRIDE ===== */
+
+
+/* =========================================================
+
+
+/* =====================================================
+
+/* ===== KHUSHI HOMES - REFERENCE FIT FINAL ===== */
+
+@media (max-width:800px){
+
+  html,body,#root{
+    width:100% !important;
+    height:100% !important;
+    overflow:hidden !important;
+  }
+
+  main{
+    width:100% !important;
+    height:100dvh !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard{
+    width:100% !important;
+    height:100dvh !important;
+    padding:7px 14px 65px !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+
+  /* HEADER */
+  .khushi-home-dashboard .khushi-welcome-header{
+    height:70px !important;
+    min-height:70px !important;
+    margin-bottom:6px !important;
+    display:grid !important;
+    grid-template-columns:72px minmax(0,1fr) 36px !important;
+    gap:7px !important;
+    align-items:center !important;
+  }
+
+  .khushi-home-dashboard .reference-logo-image{
+    width:72px !important;
+    height:65px !important;
+    object-fit:contain !important;
+  }
+
+  .khushi-home-dashboard .welcome-text{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .welcome-text b{
+    font-size:16px !important;
+    line-height:19px !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .welcome-text span{
+    font-size:8px !important;
+    line-height:11px !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .welcome-bell{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+  }
+
+  /* HERO */
+  .khushi-home-dashboard .reference-hero-card{
+    height:137px !important;
+    min-height:137px !important;
+    max-height:137px !important;
+    margin-bottom:22px !important;
+    border-radius:11px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-image{
+    left:50% !important;
+    width:50% !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-info{
+    width:55% !important;
+    padding:39px 0 0 19px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-title{
+    font-size:18px !important;
+    line-height:20px !important;
+    margin-bottom:7px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-status{
+    font-size:11px !important;
+    gap:6px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-status i{
+    width:12px !important;
+    height:12px !important;
+    min-width:12px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-status b{
+    font-size:11px !important;
+  }
+
+  .khushi-home-dashboard .reference-hero-card .my-home-info p{
+    font-size:6px !important;
+    margin-top:4px !important;
+  }
+
+  /* HEADINGS */
+  .khushi-home-dashboard .home-section-title{
+    margin:0 7px 8px !important;
+  }
+
+  .khushi-home-dashboard .home-section-title h2{
+    font-size:16px !important;
+    line-height:19px !important;
+  }
+
+  .khushi-home-dashboard .home-section-title button{
+    font-size:8px !important;
+  }
+
+  /* QUICK CONTROLS */
+  .khushi-home-dashboard .quick-control-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin-bottom:20px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    height:56px !important;
+    min-height:56px !important;
+    max-height:56px !important;
+    padding:6px 8px !important;
+    border-radius:9px !important;
+    gap:6px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:31px !important;
+    height:31px !important;
+    min-width:31px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:24px !important;
+    height:24px !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    font-size:9px !important;
+    line-height:11px !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    font-size:6px !important;
+    line-height:8px !important;
+  }
+
+  /* ROOMS */
+  .khushi-home-dashboard .home-rooms-row{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card{
+    border-radius:8px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo,
+  .khushi-home-dashboard .reference-room-photo{
+    height:65px !important;
+    min-height:65px !important;
+    max-height:65px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card>b{
+    padding:5px 5px 4px !important;
+    font-size:8px !important;
+    line-height:9px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card>small{
+    display:none !important;
+  }
+
+  /* BOTTOM NAV */
+  main > nav{
+    left:10px !important;
+    right:10px !important;
+    bottom:7px !important;
+    height:62px !important;
+    min-height:62px !important;
+    max-height:62px !important;
+    padding:3px !important;
+    border-radius:25px !important;
+    transform:none !important;
+    grid-template-columns:repeat(4,1fr) !important;
+  }
+
+  main > nav button{
+    height:56px !important;
+    padding:2px !important;
+    gap:2px !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:24px !important;
+    height:24px !important;
+  }
+
+  main > nav button span{
+    font-size:9px !important;
+    line-height:11px !important;
+  }
+
+}
+
+/* ===== END REFERENCE FIT ===== */
+
+
+/* ===== FINAL ICON SIZE FIX ===== */
+
+@media (max-width:800px){
+
+  .khushi-home-dashboard .quick-control > span{
+    width:26px !important;
+    height:26px !important;
+    min-width:26px !important;
+    flex:0 0 26px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:20px !important;
+    height:20px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    gap:5px !important;
+    padding:6px 7px !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    font-size:9px !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    font-size:6px !important;
+  }
+
+  /* Give text a little more room */
+  .khushi-home-dashboard .quick-control > div{
+    flex:1 !important;
+    min-width:0 !important;
+  }
+
+}
+
+
+/* ===== QUICK CONTROLS SMALLER ===== */
+
+@media (max-width:800px){
+
+  .khushi-home-dashboard .quick-control-grid{
+    gap:5px !important;
+    margin-bottom:16px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    height:48px !important;
+    min-height:48px !important;
+    max-height:48px !important;
+    padding:5px 6px !important;
+    border-radius:8px !important;
+    gap:5px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:23px !important;
+    height:23px !important;
+    min-width:23px !important;
+    flex:0 0 23px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:18px !important;
+    height:18px !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    font-size:8px !important;
+    line-height:10px !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    font-size:5.5px !important;
+    line-height:7px !important;
+  }
+
+}
+
+
+/* ===== QUICK CONTROLS COMPACT - ROOMS VISIBLE ===== */
+
+@media (max-width:800px){
+
+  .khushi-home-dashboard .quick-control-grid{
+    gap:5px !important;
+    margin-bottom:12px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    height:40px !important;
+    min-height:40px !important;
+    max-height:40px !important;
+    padding:4px 6px !important;
+    border-radius:8px !important;
+    gap:5px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:21px !important;
+    height:21px !important;
+    min-width:21px !important;
+    flex:0 0 21px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:16px !important;
+    height:16px !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    font-size:8px !important;
+    line-height:9px !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    font-size:5px !important;
+    line-height:6px !important;
+  }
+
+  .khushi-home-dashboard .quick-control strong{
+    font-size:9px !important;
+  }
+
+}
+
+
+/* ===== FINAL COMPACT QUICK CONTROLS ===== */
+@media (max-width: 800px){
+
+  .khushi-home-dashboard .quick-control-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-bottom:20px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    width:100% !important;
+    height:78px !important;
+    min-height:78px !important;
+    max-height:78px !important;
+    padding:8px 10px !important;
+    margin:0 !important;
+    border-radius:14px !important;
+    gap:8px !important;
+    box-sizing:border-box !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    flex:0 0 38px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:27px !important;
+    height:27px !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    font-size:14px !important;
+    line-height:16px !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    font-size:9px !important;
+    line-height:11px !important;
+    white-space:nowrap !important;
+  }
+
+  .khushi-home-dashboard .quick-control strong{
+    font-size:15px !important;
+    line-height:17px !important;
+  }
+
+  /* Rooms immediately below Quick Controls */
+  .khushi-home-dashboard .rooms-heading{
+    margin-top:14px !important;
+    margin-bottom:8px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    margin-top:0 !important;
+  }
+
+}
+
+/* ===== FINAL COMPACT DASHBOARD ===== */
+@media (max-width:800px){
+
+  /* QUICK CONTROLS - SMALL */
+  .khushi-home-dashboard .quick-control-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:7px !important;
+    margin-bottom:18px !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    height:58px !important;
+    min-height:58px !important;
+    max-height:58px !important;
+    padding:6px 9px !important;
+    border-radius:13px !important;
+    gap:7px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+    flex:0 0 34px !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:24px !important;
+    height:24px !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    font-size:13px !important;
+    line-height:15px !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    font-size:8px !important;
+    line-height:10px !important;
+  }
+
+  .khushi-home-dashboard .quick-control strong{
+    font-size:13px !important;
+    line-height:15px !important;
+  }
+
+  /* ROOMS - SMALL AND IMMEDIATELY BELOW */
+  .khushi-home-dashboard .rooms-heading{
+    margin-top:12px !important;
+    margin-bottom:7px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:7px !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card{
+    width:100% !important;
+    min-width:0 !important;
+    border-radius:11px !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo{
+    height:70px !important;
+    min-height:70px !important;
+    max-height:70px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card > b{
+    padding:6px 5px 2px !important;
+    font-size:10px !important;
+    line-height:12px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card > small{
+    padding:0 5px 6px !important;
+    font-size:7px !important;
+    line-height:9px !important;
+  }
+
+}
+
+/* ===== FINAL MOBILE DASHBOARD FIX ===== */
+@media (max-width:800px){
+
+  .khushi-home-dashboard .quick-control-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin:0 0 10px 0 !important;
+    padding:0 !important;
+  }
+
+  .khushi-home-dashboard .quick-control{
+    display:flex !important;
+    align-items:center !important;
+    width:100% !important;
+    height:58px !important;
+    min-height:58px !important;
+    max-height:58px !important;
+    padding:6px 8px !important;
+    margin:0 !important;
+    gap:7px !important;
+    border-radius:12px !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span{
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    flex:0 0 30px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .khushi-home-dashboard .quick-control > span img{
+    width:22px !important;
+    height:22px !important;
+    object-fit:contain !important;
+  }
+
+  .khushi-home-dashboard .quick-control > div{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .quick-control b{
+    display:block !important;
+    font-size:12px !important;
+    line-height:14px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .khushi-home-dashboard .quick-control small{
+    display:block !important;
+    font-size:8px !important;
+    line-height:10px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .khushi-home-dashboard .quick-control strong{
+    font-size:13px !important;
+    line-height:13px !important;
+    flex:0 0 auto !important;
+  }
+
+  /* Rooms immediately after Quick Controls */
+  .khushi-home-dashboard .rooms-heading{
+    margin-top:8px !important;
+    margin-bottom:7px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:6px !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card{
+    width:100% !important;
+    min-width:0 !important;
+    border-radius:10px !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo{
+    height:62px !important;
+    min-height:62px !important;
+    max-height:62px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card > b{
+    display:block !important;
+    padding:5px 4px 2px !important;
+    font-size:9px !important;
+    line-height:11px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card > small{
+    display:block !important;
+    padding:0 4px 5px !important;
+    font-size:7px !important;
+    line-height:8px !important;
+  }
+}
+
+/* ===== END FINAL MOBILE DASHBOARD FIX ===== */
+
+/* ===== OVERRIDE REFERENCE CONTROL SIZE ===== */
+@media (max-width:800px){
+
+  .khushi-home-dashboard .quick-control.reference-control{
+    width:100% !important;
+    height:58px !important;
+    min-height:58px !important;
+    max-height:58px !important;
+    padding:6px 8px !important;
+    margin:0 !important;
+    gap:7px !important;
+    border-radius:12px !important;
+    box-sizing:border-box !important;
+  }
+
+  .khushi-home-dashboard .quick-control.reference-control > span{
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    flex:0 0 30px !important;
+  }
+
+  .khushi-home-dashboard .quick-control.reference-control > span img{
+    width:22px !important;
+    height:22px !important;
+  }
+
+  .khushi-home-dashboard .quick-control.reference-control > div{
+    flex:1 !important;
+    min-width:0 !important;
+  }
+
+  .khushi-home-dashboard .quick-control.reference-control > div b{
+    font-size:12px !important;
+    line-height:14px !important;
+    margin:0 !important;
+  }
+
+  .khushi-home-dashboard .quick-control.reference-control > div small{
+    font-size:8px !important;
+    line-height:10px !important;
+    margin:0 !important;
+  }
+
+  .khushi-home-dashboard .quick-control.reference-control > strong{
+    font-size:13px !important;
+  }
+
+  .khushi-home-dashboard .quick-control-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-bottom:10px !important;
+  }
+
+  .khushi-home-dashboard .rooms-heading{
+    margin-top:8px !important;
+    margin-bottom:7px !important;
+  }
+}
+
+/* ===== FINAL BOTTOM NAV ICON + BUTTON FIX ===== */
+@media (max-width:800px){
+
+  .khushi-home-dashboard ~ nav,
+  main > nav{
+    left:12px !important;
+    right:12px !important;
+    bottom:8px !important;
+    height:64px !important;
+    min-height:64px !important;
+    max-height:64px !important;
+    padding:4px !important;
+    border-radius:32px !important;
+    grid-template-columns:repeat(4,1fr) !important;
+    box-sizing:border-box !important;
+  }
+
+  main > nav button{
+    height:56px !important;
+    min-height:56px !important;
+    padding:3px 2px !important;
+    gap:3px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border-radius:25px !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    min-height:28px !important;
+    flex:0 0 28px !important;
+    stroke-width:2.2 !important;
+  }
+
+  main > nav button span{
+    display:block !important;
+    font-size:10px !important;
+    line-height:12px !important;
+    font-weight:600 !important;
+    white-space:nowrap !important;
+  }
+
+  main > nav button.active .bottom-nav-icon{
+    width:29px !important;
+    height:29px !important;
+  }
+
+}
+
+/* ===== END BOTTOM NAV FIX ===== */
+
+/* ===== BOTTOM NAV ICON POSITION FIX ===== */
+@media (max-width:800px){
+  main > nav button{
+    justify-content:center !important;
+    gap:1px !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    transform:translateY(-4px) !important;
+    margin-bottom:-1px !important;
+  }
+
+  main > nav button span{
+    transform:translateY(2px) !important;
+  }
+}
+
+/* ===== FINAL BOTTOM NAV ICON ALIGNMENT ===== */
+@media (max-width:800px){
+  main > nav button{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    padding-top:7px !important;
+    gap:0 !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:28px !important;
+    height:28px !important;
+    margin:0 0 3px 0 !important;
+    transform:none !important;
+    flex:0 0 28px !important;
+  }
+
+  main > nav button span{
+    transform:none !important;
+    margin:0 !important;
+    line-height:12px !important;
+  }
+}
+
+/* ===== ROOMS BOTTOM ICON VISIBILITY ===== */
+@media (max-width:800px){
+  main > nav button:nth-child(2) .bottom-nav-icon{
+    display:block !important;
+    width:28px !important;
+    height:28px !important;
+    min-width:28px !important;
+    min-height:28px !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    stroke:#8b98a8 !important;
+    stroke-width:2.5 !important;
+  }
+
+  main > nav button:nth-child(2) span{
+    display:block !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+}
+
+/* ===== MOVE ROOMS SECTION ABOVE BOTTOM NAV ===== */
+@media (max-width:800px){
+  .khushi-home-dashboard .rooms-heading{
+    transform:translateY(-55px) !important;
+    margin-bottom:-48px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    transform:translateY(-55px) !important;
+  }
+}
+
+/* ===== ROOMS ONLY - FINAL COMPACT FIX ===== */
+@media (max-width:800px){
+  .khushi-home-dashboard .rooms-heading{
+    transform:translateY(-15px) !important;
+    margin-top:8px !important;
+    margin-bottom:6px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    transform:translateY(-15px) !important;
+    gap:8px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card{
+    min-height:150px !important;
+    height:150px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo{
+    height:88px !important;
+    min-height:88px !important;
+  }
+}
+
+/* ===== FINAL CLEAN ONE-PAGE SPACING ===== */
+@media (max-width:800px){
+
+  /* Quick Controls swalpa mele */
+  .khushi-home-dashboard .home-section-title:has(+ .quick-control-grid){
+    transform:translateY(-14px) !important;
+    margin-bottom:-10px !important;
+  }
+
+  .khushi-home-dashboard .quick-control-grid{
+    margin-top:0 !important;
+    margin-bottom:4px !important;
+  }
+
+  /* Rooms normal flow - no extra transform */
+  .khushi-home-dashboard .rooms-heading{
+    transform:none !important;
+    margin-top:8px !important;
+    margin-bottom:6px !important;
+  }
+
+  .khushi-home-dashboard .home-rooms-row{
+    transform:none !important;
+    gap:7px !important;
+  }
+
+  /* Room cards compact so names stay above navigation */
+  .khushi-home-dashboard .home-room-photo-card{
+    height:112px !important;
+    min-height:112px !important;
+    max-height:112px !important;
+    border-radius:14px !important;
+    overflow:hidden !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-photo{
+    height:64px !important;
+    min-height:64px !important;
+    max-height:64px !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card .room-name,
+  .khushi-home-dashboard .home-room-photo-card h3{
+    font-size:11px !important;
+    line-height:14px !important;
+    margin:5px 5px 0 !important;
+  }
+
+  .khushi-home-dashboard .home-room-photo-card small{
+    font-size:8px !important;
+    line-height:10px !important;
+  }
+}
+
+/* ROOMS ONLY - MOVE SLIGHTLY UP */
+@media (max-width:800px){
+  .khushi-home-dashboard .rooms-heading,
+  .khushi-home-dashboard .home-rooms-row{
+    transform:translateY(-35px) !important;
+  }
+}
+
+/* ===== BOTTOM NAV SMALLER ONLY ===== */
+@media (max-width:800px){
+  main > nav{
+    height:58px !important;
+    min-height:58px !important;
+    max-height:58px !important;
+    bottom:7px !important;
+    padding:3px !important;
+  }
+
+  main > nav button{
+    height:50px !important;
+    min-height:50px !important;
+    padding-top:4px !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:24px !important;
+    height:24px !important;
+    min-width:24px !important;
+    min-height:24px !important;
+  }
+
+  main > nav button span{
+    font-size:9px !important;
+    line-height:11px !important;
+  }
+}
+
+/* ===== FINAL NAV + ROOMS HEADING ONLY ===== */
+@media (max-width:800px){
+
+  /* Bottom navigation more compact */
+  main > nav{
+    height:52px !important;
+    min-height:52px !important;
+    max-height:52px !important;
+    bottom:7px !important;
+    padding:2px !important;
+  }
+
+  main > nav button{
+    height:46px !important;
+    min-height:46px !important;
+    padding:2px !important;
+    gap:0 !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:22px !important;
+    height:22px !important;
+    min-width:22px !important;
+    min-height:22px !important;
+    flex:0 0 22px !important;
+  }
+
+  main > nav button span{
+    font-size:8px !important;
+    line-height:10px !important;
+  }
+
+  /* Rooms heading only - slightly down */
+  .khushi-home-dashboard .rooms-heading{
+    transform:translateY(-15px) !important;
+  }
+}
+
+/* ===== ONLY BOTTOM NAV SIZE ===== */
+@media (max-width:800px){
+  main > nav{
+    height:48px !important;
+    min-height:48px !important;
+    max-height:48px !important;
+    padding:2px !important;
+    bottom:7px !important;
+  }
+
+  main > nav button{
+    height:42px !important;
+    min-height:42px !important;
+    padding:1px 2px !important;
+    gap:0 !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:21px !important;
+    height:21px !important;
+    min-width:21px !important;
+    min-height:21px !important;
+  }
+
+  main > nav button span{
+    font-size:8px !important;
+    line-height:9px !important;
+  }
+}
+
+/* ===== BOTTOM NAV ONLY - COMPACT BUT FULLY VISIBLE ===== */
+@media (max-width:800px){
+  main > nav{
+    height:58px !important;
+    min-height:58px !important;
+    max-height:58px !important;
+    padding:3px 4px !important;
+    box-sizing:border-box !important;
+  }
+
+  main > nav button{
+    height:52px !important;
+    min-height:52px !important;
+    max-height:52px !important;
+    padding:3px 2px !important;
+    gap:1px !important;
+    box-sizing:border-box !important;
+    justify-content:center !important;
+  }
+
+  main > nav .bottom-nav-icon{
+    width:22px !important;
+    height:22px !important;
+    min-width:22px !important;
+    min-height:22px !important;
+    flex:0 0 22px !important;
+    margin:0 !important;
+  }
+
+  main > nav button span{
+    display:block !important;
+    font-size:8px !important;
+    line-height:10px !important;
+    white-space:nowrap !important;
+    margin:0 !important;
+    transform:none !important;
+  }
+}

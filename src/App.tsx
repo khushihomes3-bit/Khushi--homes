@@ -127,7 +127,99 @@ function App() {
   return <main className="app">
     {page!=='home'&&<header className="topbar"><button className="brand" onClick={()=>setPage('home')}><span className="logo"><Home size={28}/><span className="wifi">⌁</span></span><span><b>KHUSHI</b><strong>HOMES</strong><small>Smart Home</small></span></button><div className="top-actions"><button className="icon" onClick={()=>setSearchOpen(v=>!v)} aria-label="Search"><Search size={20}/></button><button className="icon" onClick={()=>setPage('notifications')} aria-label="Notifications"><Bell size={20}/>{notifications.length>0&&<span className="notification-dot"/>}</button><button className="icon" onClick={()=>setPage('profile')} aria-label="Profile"><UserCircle size={20}/></button>{admin&&<button className="icon" onClick={()=>setPage('admin')} aria-label="Admin"><Settings size={20}/></button>}<button className="icon" onClick={()=>void signOut(auth)} aria-label="Sign out"><LogOut size={19}/></button></div></header>}
     {appMessage&&<div className="notice">{appMessage}<button onClick={()=>setAppMessage('')}><X size={15}/></button></div>}{searchOpen&&<div className="search-panel card"><div className="search-row"><Search size={18}/><input autoFocus value={searchQuery} onChange={e=>setSearchQuery(e.target.value)} onKeyDown={e=>{if(e.key==='Enter')runSearch()}} placeholder="Search devices, rooms, payments, schedules..."/><button onClick={runSearch}><Search size={16}/> Search</button></div><small>Try: Living Room, Fan, Payment, UPI, Schedule or Settings</small></div>}
-    {page==='home'&&<section className="khushi-reference"><div className="khushi-header"><KhushiLogo/><div className="khushi-actions"><button onClick={()=>setSearchOpen(v=>!v)} aria-label="Search"><Search/></button><button onClick={()=>setPage('notifications')} aria-label="Notifications"><Bell/>{notifications.length>0&&<span>{notifications.length}</span>}</button><button onClick={()=>setPage('profile')} aria-label="Profile">{profile.photo?<img src={profile.photo} alt="Profile"/>:<UserCircle/>}</button>{admin&&<button onClick={()=>setPage('admin')} aria-label="Admin">⚙️</button>}</div></div><div className="hero-card"><div><h1>Control Your<br/>Home In One Place</h1><p>Smart Devices | Safe Home<br/>Happy Living</p></div><div className="hero-house">⌂</div></div><div className="room-card-grid">{ROOMS.map((room,index)=>{const count=devices.filter(d=>d.room===room).length;const active=devices.filter(d=>d.room===room&&d.on).length;const RoomIcon=index===0?Sofa:index===1?Home:index===2?Bot:index===3?BedDouble:index===4?Flame:Droplets;return <button className="model-room-card" key={room} onClick={()=>roomOpen(room)}><div className="room-art"><RoomIcon/></div><b>{room}</b><small>{count} Devices</small><span className="room-toggle"><i>ON</i><em className={active>0?'on':''}></em></span></button>})}</div></section>}
+    {page==='home'&&<section className="khushi-home-dashboard">
+
+  <div className="khushi-welcome-header">
+    <img className="reference-logo-image" src="/dashboard-reference/khushi-logo.png" alt="KHUSHI HOMES"/>
+    <div className="welcome-text">
+      <small>Hello,</small>
+      <b>Welcome Home 👋</b>
+      <span>Smart Homes • Brighter Living</span>
+    </div>
+    <button className="welcome-bell" onClick={()=>setPage('notifications')} aria-label="Notifications">
+      <Bell/>
+      {notifications.length>0&&<span>{notifications.length}</span>}
+    </button>
+  </div>
+
+  <div className="my-home-card reference-hero-card">
+    <div className="reference-hero-image"></div>
+    <div className="my-home-info">
+      <div className="my-home-title">My Home</div>
+      <div className="my-home-status">Home <i></i> <b>Online</b></div>
+      <p>All systems are working properly</p>
+    </div>
+  </div>
+
+  <div className="home-section-title">
+    <h2>Quick Controls</h2>
+    <button onClick={()=>setPage('devices')}>See All ›</button>
+  </div>
+
+  <div className="quick-control-grid">
+    <button className="quick-control reference-control green" onClick={()=>setPage('devices')}>
+      <span><img src="/dashboard-reference/icon-lights.png" alt=""/></span>
+      <div><b>Lights</b><small>{devices.filter(d=>d.type==='Light'&&d.on).length} / {devices.filter(d=>d.type==='Light').length} ON</small></div>
+      <strong>›</strong>
+    </button>
+
+    <button className="quick-control reference-control blue" onClick={()=>setPage('devices')}>
+      <span><img src="/dashboard-reference/icon-fans.png" alt=""/></span>
+      <div><b>Fans</b><small>{devices.filter(d=>d.type==='Fan'&&d.on).length} / {devices.filter(d=>d.type==='Fan').length} ON</small></div>
+      <strong>›</strong>
+    </button>
+
+    <button className="quick-control reference-control blue" onClick={()=>setPage('camera')}>
+      <span><img src="/dashboard-reference/icon-cameras.png" alt=""/></span>
+      <div><b>Cameras</b><small>{devices.filter(d=>d.type==='Camera').length} Online</small></div>
+      <strong>›</strong>
+    </button>
+
+    <button className="quick-control reference-control blue" onClick={()=>setPage('devices')}>
+      <span><img src="/dashboard-reference/icon-lock.png" alt=""/></span>
+      <div><b>Door Lock</b><small>Locked</small></div>
+      <strong>›</strong>
+    </button>
+
+    <button className="quick-control reference-control blue" onClick={()=>setPage('devices')}>
+      <span><img src="/dashboard-reference/icon-wifi.png" alt=""/></span>
+      <div><b>Wi-Fi</b><small>Connected</small></div>
+      <strong>›</strong>
+    </button>
+
+    <button className="quick-control reference-control blue" onClick={()=>setPage('schedules')}>
+      <span><img src="/dashboard-reference/icon-scenes.png" alt=""/></span>
+      <div><b>Scenes</b><small>4 Scenes</small></div>
+      <strong>›</strong>
+    </button>
+  </div>
+
+  <div className="home-section-title rooms-heading">
+    <h2>Rooms</h2>
+    <button onClick={()=>setPage('rooms')}>See All ›</button>
+  </div>
+
+  <div className="home-rooms-row">
+    {ROOMS.slice(0,4).map((room,index)=>{
+      const count=devices.filter(d=>d.room===room).length;
+      const photos=[
+        "/dashboard-reference/room-bedroom1.jpg",
+        "/dashboard-reference/room-bedroom2.jpg",
+        "/dashboard-reference/room-hall.jpg",
+        "/dashboard-reference/room-kitchen.jpg"
+      ];
+      const names=["Bedroom 1","Bedroom 2","Hall","Kitchen"];
+      return <button className="home-room-photo-card" key={room} onClick={()=>roomOpen(room)}>
+        <div className="room-photo reference-room-photo">
+          <img src={photos[index]} alt={names[index]}/>
+        </div>
+        <b>{names[index]}</b>
+        <small><i></i>{count} Devices <strong>›</strong></small>
+      </button>
+    })}
+  </div>
+
+</section>}
 
     {page==='hardware-add'&&<section className="model-page"><PageHead title="Add Hardware" subtitle="Connect a smart-home controller." back={()=>setPage('devices')}/><div className="add-form-card"><label>Hardware Name<input value={hardwareForm.name} onChange={e=>setHardwareForm(v=>({...v,name:e.target.value}))} placeholder="Home Controller 1"/></label><div className="icon-choice-title">Connection Method</div><div className="icon-choice-row">{(['Wi-Fi','Bluetooth','4G','5G'] as ConnectionType[]).map(c=><button type="button" key={c} className={hardwareForm.connectionType===c?'selected':''} onClick={()=>setHardwareForm(v=>({...v,connectionType:c}))}>{c==='Wi-Fi'?'📶':c==='Bluetooth'?'🔵':c==='4G'?'📡':'🚀'} {c}</button>)}</div><label>Device ID / Serial Number<input value={hardwareForm.deviceId} onChange={e=>setHardwareForm(v=>({...v,deviceId:e.target.value}))} placeholder="KH001234"/></label><label>Number of Channels<select value={hardwareForm.channelCount} onChange={e=>setHardwareForm(v=>({...v,channelCount:Number(e.target.value)}))}>{[1,2,4,6,8,12,16,24,32,48,64].map(n=><option key={n} value={n}>{n} Channels</option>)}<option value={0}>Custom (1-64)</option></select></label>{hardwareForm.channelCount===0&&<label>Custom Channel Count<input type="number" min="1" max="64" value={hardwareForm.channelCount||''} onChange={e=>setHardwareForm(v=>({...v,channelCount:Math.max(1,Math.min(64,Number(e.target.value)||1))}))} placeholder="Enter 1-64"/></label>}<button className="model-primary" onClick={addHardwareController}><Plus/> Add Hardware Controller</button></div></section>}
 
@@ -176,7 +268,20 @@ onClick={()=>setNewDevice(v=>({...v,connectionType:c}))}>
 
     {page==='admin'&&admin&&<AdminPage plans={plans} enquiries={enquiries} whatsapp={whatsapp} setWhatsapp={setWhatsapp} saveWhatsapp={saveWhatsapp} editingPlan={editingPlan} setEditingPlan={setEditingPlan} planDraft={planDraft} setPlanDraft={setPlanDraft} savePlan={savePlan} updateEnquiry={updateEnquiry}/>}
     {editingDevice!==null&&<div className="modal"><div className="card modal-card"><h3><Edit3/> Edit Device</h3><input value={editName} onChange={e=>setEditName(e.target.value)}/><div className="button-row"><button className="wide" onClick={()=>saveDeviceName(editingDevice)}>Save</button><button className="profile-logout" onClick={()=>setEditingDevice(null)}>Cancel</button></div></div></div>}
-    <nav><button className={page==='home'?'active':''} onClick={()=>setPage('home')}><Home/><span>HOME</span></button><button className={page==='devices'?'active':''} onClick={()=>setPage('devices')}><Smartphone/><span>DEVICES</span></button><button className={page==='rooms'?'active':''} onClick={()=>setPage('rooms')}><Grid2X2/><span>ROOMS</span></button><button className={page==='schedules'?'active':''} onClick={()=>setPage('schedules')}><CalendarClock/><span>SCHEDULES</span></button><button className={page==='settings'?'active':''} onClick={()=>setPage('settings')}><Settings/><span>SETTINGS</span></button></nav>
+    <nav>
+  <button className={page==='home'?'active':''} onClick={()=>setPage('home')}>
+    <Home className="bottom-nav-icon"/><span>Home</span>
+  </button>
+  <button className={page==='rooms'?'active':''} onClick={()=>setPage('rooms')}>
+    <Grid2X2 className="bottom-nav-icon"/><span>Rooms</span>
+  </button>
+  <button className={page==='devices'?'active':''} onClick={()=>setPage('devices')}>
+    <Smartphone className="bottom-nav-icon"/><span>Devices</span>
+  </button>
+  <button className={page==='settings'?'active':''} onClick={()=>setPage('settings')}>
+    <Settings className="bottom-nav-icon"/><span>Settings</span>
+  </button>
+</nav>
   </main>;
 }
 
