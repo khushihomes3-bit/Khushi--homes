@@ -39,3 +39,637 @@
   transform:scale(.98);
 }
 
+
+/* KHUSHI HOMES - Reference Home Dashboard */
+
+.khushi-home-dashboard{
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
+  padding:4px 0 105px;
+  color:#102844;
+}
+
+.khushi-welcome-header{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:4px 4px 14px;
+}
+
+.khushi-welcome-header .khushi-logo{
+  flex-shrink:0;
+}
+
+.welcome-text{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.welcome-text small{
+  font-size:14px;
+  color:#607086;
+}
+
+.welcome-text b{
+  font-size:23px;
+  color:#0c294d;
+  margin:2px 0 4px;
+}
+
+.welcome-text span{
+  font-size:13px;
+  color:#65758a;
+}
+
+.welcome-bell{
+  position:relative;
+  width:48px;
+  height:48px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:#087fe0;
+  display:grid;
+  place-items:center;
+  box-shadow:0 5px 18px rgba(20,70,110,.10);
+}
+
+.welcome-bell svg{
+  width:25px;
+  height:25px;
+}
+
+.welcome-bell span{
+  position:absolute;
+  right:5px;
+  top:4px;
+  min-width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#ed3048;
+  color:transparent;
+}
+
+/* My Home hero */
+
+.my-home-card{
+  min-height:276px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  padding:28px 30px;
+  color:#fff;
+  background:linear-gradient(120deg,#07509d 0%,#0b66bd 48%,#082e5c 100%);
+  box-shadow:0 12px 28px rgba(10,65,120,.18);
+}
+
+.my-home-info{
+  position:relative;
+  z-index:2;
+}
+
+.my-home-title{
+  font-size:27px;
+  font-weight:800;
+}
+
+.my-home-title span{
+  font-size:24px;
+  margin-left:8px;
+  opacity:.8;
+}
+
+.my-home-status{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:10px;
+  font-size:18px;
+  color:#d9e9fb;
+}
+
+.my-home-status i{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#18b965;
+  display:inline-block;
+}
+
+.my-home-status b{
+  color:#fff;
+}
+
+.my-home-info p{
+  margin:14px 0 24px;
+  font-size:14px;
+  color:#d4e4f5;
+}
+
+.my-home-info button{
+  border:0;
+  border-radius:30px;
+  padding:13px 19px;
+  background:#fff;
+  color:#163d68;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  box-shadow:0 5px 15px rgba(0,0,0,.10);
+}
+
+.my-home-info button svg{
+  width:19px;
+  height:19px;
+}
+
+.my-home-info button strong{
+  font-size:24px;
+  line-height:12px;
+}
+
+.my-home-house{
+  position:absolute;
+  right:15px;
+  bottom:-12px;
+  font-size:220px;
+  line-height:1;
+  opacity:.20;
+  font-weight:900;
+}
+
+/* Summary */
+
+.home-summary{
+  margin-top:14px;
+  padding:13px 7px;
+  background:#fff;
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  box-shadow:0 7px 22px rgba(30,70,110,.07);
+}
+
+.home-summary>div{
+  min-width:0;
+  display:grid;
+  grid-template-columns:46px 1fr;
+  grid-template-rows:auto auto auto;
+  column-gap:9px;
+  align-items:center;
+  padding:3px 12px;
+  border-right:1px solid #dce5ed;
+}
+
+.home-summary>div:last-child{
+  border-right:0;
+}
+
+.summary-icon{
+  width:42px;
+  height:42px;
+  grid-row:1 / span 3;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+}
+
+.summary-icon svg{
+  width:24px;
+  height:24px;
+}
+
+.summary-icon.light{
+  background:#e6f8df;
+  color:#13a34a;
+}
+
+.summary-icon.fan{
+  background:#e3f1ff;
+  color:#087fe0;
+}
+
+.summary-icon.camera{
+  background:#e2f1ff;
+  color:#087fe0;
+}
+
+.summary-icon.lock{
+  background:#e4f7e9;
+  color:#079244;
+}
+
+.home-summary b{
+  font-size:20px;
+  line-height:1;
+}
+
+.home-summary small{
+  font-size:11px;
+  color:#68798c;
+}
+
+.home-summary em{
+  font-size:10px;
+  font-style:normal;
+  color:#15984d;
+  font-weight:800;
+}
+
+/* Section headings */
+
+.home-section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:27px 2px 11px;
+}
+
+.home-section-title h2{
+  margin:0;
+  font-size:20px;
+  color:#102f55;
+}
+
+.home-section-title button{
+  border:0;
+  background:none;
+  color:#087fe0;
+  font-weight:800;
+  font-size:13px;
+}
+
+/* Quick controls */
+
+.quick-control-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+}
+
+.quick-control{
+  min-height:91px;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:20px;
+  padding:15px;
+  display:grid;
+  grid-template-columns:45px 1fr 16px;
+  grid-template-rows:1fr 1fr;
+  column-gap:10px;
+  align-items:center;
+  text-align:left;
+  position:relative;
+  overflow:hidden;
+  color:#102844;
+  box-shadow:0 5px 18px rgba(30,70,110,.06);
+}
+
+.quick-control.green{
+  background:#effaf2;
+}
+
+.quick-control.blue{
+  background:#eef7ff;
+}
+
+.quick-control.purple{
+  background:#f3efff;
+}
+
+.quick-control>span{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  grid-row:1 / span 2;
+  display:grid;
+  place-items:center;
+}
+
+.quick-control.green>span{
+  color:#07964a;
+  background:#dff5e5;
+}
+
+.quick-control.blue>span{
+  color:#087fe0;
+  background:#ddecff;
+}
+
+.quick-control.purple>span{
+  color:#5a37d9;
+  background:#e8e0ff;
+}
+
+.quick-control>span svg{
+  width:25px;
+  height:25px;
+}
+
+.quick-control div{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.quick-control div b{
+  font-size:14px;
+}
+
+.quick-control div small{
+  color:#268b55;
+  font-size:11px;
+  font-weight:700;
+}
+
+.quick-control.blue div small,
+.quick-control.purple div small{
+  color:#66778b;
+}
+
+.quick-control>strong{
+  grid-column:3;
+  grid-row:1 / span 2;
+  font-size:25px;
+  font-weight:400;
+  color:#668097;
+}
+
+.quick-control>i{
+  position:absolute;
+  right:14px;
+  bottom:13px;
+  width:37px;
+  height:21px;
+  border-radius:20px;
+  background:#16a45b;
+}
+
+.quick-control>i:after{
+  content:"";
+  position:absolute;
+  width:15px;
+  height:15px;
+  right:3px;
+  top:3px;
+  background:#fff;
+  border-radius:50%;
+}
+
+/* Rooms */
+
+.rooms-heading{
+  margin-top:28px;
+}
+
+.home-rooms-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  overflow:hidden;
+}
+
+.home-room-photo-card{
+  min-width:0;
+  border:0;
+  padding:0 0 9px;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  text-align:left;
+  box-shadow:0 5px 16px rgba(30,70,110,.07);
+}
+
+.room-photo{
+  height:112px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#d9e4d9,#b8c7b8);
+  color:#fff;
+}
+
+.room-photo-1{
+  background:linear-gradient(135deg,#d7d1c8,#a99c8c);
+}
+
+.room-photo-2{
+  background:linear-gradient(135deg,#d9d0c5,#9e907f);
+}
+
+.room-photo-3{
+  background:linear-gradient(135deg,#ddd2c1,#a89375);
+}
+
+.room-photo svg{
+  width:52px;
+  height:52px;
+  opacity:.72;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.25));
+}
+
+.home-room-photo-card>b{
+  display:block;
+  padding:8px 9px 2px;
+  font-size:12px;
+  color:#17365d;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.home-room-photo-card>small{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:0 9px;
+  color:#5d7085;
+  font-size:10px;
+}
+
+.home-room-photo-card>small i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#15a958;
+}
+
+.home-room-photo-card>small strong{
+  margin-left:auto;
+  font-size:19px;
+  font-weight:400;
+  color:#718397;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+  .khushi-home-dashboard{
+    max-width:100%;
+  }
+
+  .khushi-welcome-header{
+    grid-template-columns:auto 1fr auto;
+    gap:8px;
+  }
+
+  .welcome-text b{
+    font-size:19px;
+  }
+
+  .welcome-text small{
+    font-size:12px;
+  }
+
+  .welcome-text span{
+    font-size:11px;
+  }
+
+  .my-home-card{
+    min-height:276px;
+    padding:25px 25px;
+    border-radius:21px;
+  }
+
+  .my-home-title{
+    font-size:25px;
+  }
+
+  .my-home-house{
+    font-size:190px;
+  }
+
+  .home-summary{
+    padding:10px 3px;
+  }
+
+  .home-summary>div{
+    grid-template-columns:34px 1fr;
+    column-gap:5px;
+    padding:3px 5px;
+  }
+
+  .summary-icon{
+    width:34px;
+    height:34px;
+  }
+
+  .summary-icon svg{
+    width:20px;
+    height:20px;
+  }
+
+  .home-summary b{
+    font-size:17px;
+  }
+
+  .home-summary small{
+    font-size:9px;
+  }
+
+  .home-summary em{
+    font-size:8px;
+  }
+
+  .quick-control{
+    min-height:86px;
+    padding:12px;
+    grid-template-columns:39px 1fr 13px;
+  }
+
+  .quick-control>span{
+    width:37px;
+    height:37px;
+  }
+
+  .quick-control>span svg{
+    width:22px;
+    height:22px;
+  }
+
+  .home-rooms-row{
+    grid-template-columns:repeat(4,minmax(125px,1fr));
+    overflow-x:auto;
+    padding-bottom:4px;
+  }
+
+  .room-photo{
+    height:105px;
+  }
+}
+
+@media(max-width:420px){
+  .welcome-text b{
+    font-size:17px;
+  }
+
+  .khushi-welcome-header .khushi-logo-text small{
+    font-size:7px;
+  }
+
+  .khushi-welcome-header .khushi-logo-text b,
+  .khushi-welcome-header .khushi-logo-text strong{
+    font-size:14px;
+  }
+
+  .khushi-welcome-header .khushi-logo-mark{
+    width:40px;
+    height:40px;
+  }
+
+  .welcome-bell{
+    width:44px;
+    height:44px;
+  }
+
+  .my-home-card{
+    min-height:255px;
+    padding:22px;
+  }
+
+  .my-home-title{
+    font-size:23px;
+  }
+
+  .my-home-status{
+    font-size:16px;
+  }
+
+  .my-home-info p{
+    font-size:12px;
+  }
+
+  .home-summary>div{
+    grid-template-columns:1fr;
+    text-align:center;
+    justify-items:center;
+  }
+
+  .summary-icon{
+    grid-row:auto;
+    margin-bottom:3px;
+  }
+
+  .home-summary b{
+    font-size:16px;
+  }
+
+  .home-summary small,
+  .home-summary em{
+    display:block;
+  }
+
+  .quick-control-grid{
+    gap:8px;
+  }
+
+  .quick-control{
+    padding:10px;
+  }
+}
+
