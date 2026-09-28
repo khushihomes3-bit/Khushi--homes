@@ -5033,3 +5033,189 @@ nav button.active{color:#1676c8;font-weight:700}
     transform:none !important;
   }
 }
+
+/* ===== KHUSHI ROOMS - LIVE PHOTO CARDS ===== */
+
+.room-card-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  margin-top:14px !important;
+}
+
+.live-room-card{
+  padding:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  text-align:left !important;
+  min-height:0 !important;
+  border-radius:20px !important;
+  background:#fff !important;
+  border:1px solid #dce7f0 !important;
+  box-shadow:0 7px 20px rgba(35,75,112,.09) !important;
+}
+
+.live-room-photo{
+  width:100% !important;
+  height:150px !important;
+  overflow:hidden !important;
+  background:#edf4f8 !important;
+}
+
+.live-room-photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+}
+
+.live-room-bottom{
+  height:82px !important;
+  min-height:82px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:9px 12px !important;
+  background:#fff !important;
+}
+
+.live-room-icon{
+  width:48px !important;
+  height:48px !important;
+  min-width:48px !important;
+  border-radius:50% !important;
+  display:grid !important;
+  place-items:center !important;
+}
+
+.live-room-icon svg{
+  width:25px !important;
+  height:25px !important;
+  stroke-width:2.6 !important;
+}
+
+.live-room-icon.blue{
+  color:#087ff5 !important;
+  background:#e5f3ff !important;
+}
+
+.live-room-icon.purple{
+  color:#852bea !important;
+  background:#f1e4ff !important;
+}
+
+.live-room-icon.orange{
+  color:#f26b18 !important;
+  background:#fff0df !important;
+}
+
+.live-room-icon.green{
+  color:#18a84b !important;
+  background:#e3fae9 !important;
+}
+
+.live-room-icon.saffron{
+  color:#ff8a00 !important;
+  background:#fff2d3 !important;
+}
+
+.live-room-icon.cyan{
+  color:#08a8d2 !important;
+  background:#def7ff !important;
+}
+
+.live-room-info{
+  flex:1 !important;
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3px !important;
+}
+
+.live-room-info b{
+  font-size:15px !important;
+  line-height:18px !important;
+  color:#102844 !important;
+  white-space:nowrap !important;
+}
+
+.live-room-info small{
+  font-size:12px !important;
+  line-height:15px !important;
+  color:#738298 !important;
+}
+
+.live-room-arrow{
+  font-size:30px !important;
+  line-height:1 !important;
+  color:#65758a !important;
+  font-weight:400 !important;
+}
+
+@media(max-width:700px){
+  .room-card-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:12px !important;
+  }
+
+  .live-room-photo{
+    height:105px !important;
+  }
+
+  .live-room-bottom{
+    height:72px !important;
+    min-height:72px !important;
+    padding:7px 7px !important;
+    gap:6px !important;
+  }
+
+  .live-room-icon{
+    width:35px !important;
+    height:35px !important;
+    min-width:35px !important;
+  }
+
+  .live-room-icon svg{
+    width:19px !important;
+    height:19px !important;
+  }
+
+  .live-room-info b{
+    font-size:10px !important;
+    line-height:12px !important;
+  }
+
+  .live-room-info small{
+    font-size:8px !important;
+    line-height:10px !important;
+  }
+
+  .live-room-arrow{
+    font-size:22px !important;
+  }
+}
+
+@media(max-width:700px){
+  .live-room-info b{
+    font-size:9px !important;
+    line-height:11px !important;
+    white-space:nowrap !important;
+  }
+}
+
+@media(max-width:700px){
+  .live-room-info{
+    min-width:0 !important;
+  }
+
+  .live-room-info b{
+    font-size:9px !important;
+    line-height:11px !important;
+    letter-spacing:-0.2px !important;
+  }
+
+  .live-room-arrow{
+    flex:0 0 12px !important;
+  }
+}
