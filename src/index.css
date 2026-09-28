@@ -1999,11 +1999,12 @@ main>nav button span{
 
 /* IMPORTANT: no dashboard scrolling */
 html,body,#root{
-  overflow:hidden !important;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
 }
 
-main{
-  overflow:hidden !important;
+main.app{
+  overflow:visible !important;
 }
 
 /* Small phone */
@@ -5219,3 +5220,66 @@ nav button.active{color:#1676c8;font-weight:700}
     flex:0 0 12px !important;
   }
 }
+
+/* FINAL PAGE SCROLL FIX */
+html, body, #root {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+main.app {
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 100vh !important;
+}
+
+main.app > section {
+  overflow: visible !important;
+}
+
+
+/* HOME DASHBOARD: NO PAGE SCROLL */
+main.app.home-page{
+  overflow:hidden !important;
+  height:100vh !important;
+  min-height:100vh !important;
+}
+
+/* OTHER PAGES: ALLOW SCROLL */
+main.app:not(.home-page){
+  overflow:visible !important;
+  height:auto !important;
+  min-height:100vh !important;
+}
+
+/* ===== FINAL: DASHBOARD LOCK / OTHER PAGES SCROLL ===== */
+
+html, body, #root{
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+}
+
+main.app{
+  overflow:visible !important;
+  height:auto !important;
+  min-height:100vh !important;
+}
+
+/* ONLY HOME DASHBOARD */
+main.app.home-page{
+  height:100vh !important;
+  min-height:100vh !important;
+  max-height:100vh !important;
+  overflow:hidden !important;
+}
+
+/* ALL OTHER APP PAGES */
+main.app:not(.home-page){
+  height:auto !important;
+  min-height:100vh !important;
+  max-height:none !important;
+  overflow:visible !important;
+}
+

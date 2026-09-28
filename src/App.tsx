@@ -124,7 +124,7 @@ function App() {
   if(!session&&!showLogin)return <LandingPage onLogin={()=>setShowLogin(true)} />;
   if(!session)return <AuthScreen mode={authMode} setMode={setAuthMode} identifier={identifier} setIdentifier={setIdentifier} password={password} setPassword={setPassword} message={authMessage} error={authError} signIn={signIn} resetPassword={resetPassword} referralInput={referralInput} setReferralInput={setReferralInput}/>;
   const visibleDevices=roomPage?devices.filter(d=>d.room===roomPage):devices;
-  return <main className="app">
+  return <main className={`app ${page==='home'?'home-page':''}`}>
     {page!=='home'&&<header className="topbar"><button className="brand" onClick={()=>setPage('home')}><span className="logo"><Home size={28}/><span className="wifi">⌁</span></span><span><b>KHUSHI</b><strong>HOMES</strong><small>Smart Home</small></span></button><div className="top-actions"><button className="icon" onClick={()=>setSearchOpen(v=>!v)} aria-label="Search"><Search size={20}/></button><button className="icon" onClick={()=>setPage('notifications')} aria-label="Notifications"><Bell size={20}/>{notifications.length>0&&<span className="notification-dot"/>}</button><button className="icon" onClick={()=>setPage('profile')} aria-label="Profile"><UserCircle size={20}/></button>{admin&&<button className="icon" onClick={()=>setPage('admin')} aria-label="Admin"><Settings size={20}/></button>}<button className="icon" onClick={()=>void signOut(auth)} aria-label="Sign out"><LogOut size={19}/></button></div></header>}
     {appMessage&&<div className="notice">{appMessage}<button onClick={()=>setAppMessage('')}><X size={15}/></button></div>}{searchOpen&&<div className="search-panel card"><div className="search-row"><Search size={18}/><input autoFocus value={searchQuery} onChange={e=>setSearchQuery(e.target.value)} onKeyDown={e=>{if(e.key==='Enter')runSearch()}} placeholder="Search devices, rooms, payments, schedules..."/><button onClick={runSearch}><Search size={16}/> Search</button></div><small>Try: Living Room, Fan, Payment, UPI, Schedule or Settings</small></div>}
     {page==='home'&&<section className="khushi-home-dashboard">
@@ -140,6 +140,9 @@ function App() {
       <Bell/>
       {notifications.length>0&&<span>{notifications.length}</span>}
     </button>
+    {admin&&<button className="welcome-bell welcome-admin" onClick={()=>setPage('admin')} aria-label="Admin">
+      <Settings/>
+    </button>}
   </div>
 
   <div className="my-home-card reference-hero-card">
