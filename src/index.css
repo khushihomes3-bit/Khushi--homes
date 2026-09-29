@@ -5334,3 +5334,29 @@ body:has(.landing),
 .landing-footer {
   overflow: visible !important;
 }
+
+/* Settings live-photo thumbnails */
+.settings-list .setting-row{
+  min-height:78px;
+}
+
+.settings-list .setting-row .setting-photo{
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#eef6ff;
+  border:1px solid #dce7f0;
+}
+
+.settings-list .setting-row .setting-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.settings-list .setting-row .setting-photo + div{
+  min-width:0;
+}
