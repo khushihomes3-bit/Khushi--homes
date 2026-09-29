@@ -6287,3 +6287,424 @@ body:has(.landing),
   }
 }
 
+
+/* KHUSHI HOMES OFFICIAL LOGIN */
+.official-auth{min-height:100vh;width:100%;background:#061b3a;color:#fff}
+.official-auth-bg{min-height:100vh;padding:28px 18px 24px;background:radial-gradient(circle at 85% 8%,#155b91 0,#0a315c 32%,#061b3a 72%);display:flex;flex-direction:column;align-items:center}
+.official-brand{width:min(100%,620px);display:flex;align-items:center;gap:12px}
+.official-brand-logo{width:58px;height:58px;border-radius:17px;background:linear-gradient(145deg,#fff,#dff4ff);color:#1689e8;display:grid;place-items:center;position:relative;box-shadow:0 8px 25px #0003}
+.official-brand-logo span{position:absolute;right:3px;top:0;color:#1eb45b;font-size:20px}
+.official-brand b{font-size:23px;letter-spacing:.02em}
+.official-brand b strong{color:#28a9ec}
+.official-brand small{display:block;color:#c5d6e8;margin-top:2px;font-size:13px}
+.official-hero{width:min(100%,620px);padding:30px 0 25px}
+.official-hero>span{font-size:10px;letter-spacing:.15em;font-weight:900;color:#4bc0ff}
+.official-hero h2{font-size:clamp(30px,8vw,48px);line-height:1.02;margin:10px 0 22px;letter-spacing:-.03em}
+.official-hero h2 em{font-style:normal;color:#45c4ff}
+.official-features{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.official-features div{display:flex;flex-direction:column;align-items:center;gap:6px;padding:11px 5px;border-radius:16px;background:#ffffff12;border:1px solid #ffffff18;backdrop-filter:blur(8px)}
+.official-features svg{width:22px;height:22px;color:#50c7ff}
+.official-features b{font-size:11px}
+.official-login-card{width:min(100%,620px);background:#fff;color:#102844;border-radius:28px;padding:25px 20px 20px;box-shadow:0 25px 70px #0005}
+.official-login-card h1{text-align:center;font-size:32px;margin:0}
+.official-login-card>p{text-align:center;color:#718196;margin:7px 0 17px}
+.official-tabs{margin:0 0 15px!important;background:#eef5fa!important}
+.official-tabs button{font-size:14px}
+.official-field{display:flex;align-items:center;gap:9px;border:1px solid #d6e4ef;border-radius:14px;background:#fafdff;margin:9px 0;padding:0 13px}
+.official-field>span{font-size:18px;color:#52677e}
+.official-field input{border:0!important;background:transparent!important;margin:0!important;padding:14px 3px!important;outline:none}
+.official-signin{width:100%;border:0;border-radius:14px;background:linear-gradient(100deg,#1597ed,#0879d8);color:#fff;padding:15px;font-size:17px;font-weight:900;margin-top:9px;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 10px 24px #1689e83d}
+.official-forgot{width:100%;border:0;background:none;color:#1689e8;font-weight:800;padding:13px}
+.official-divider{display:flex;align-items:center;gap:12px;color:#718196;margin:3px 0 12px}
+.official-divider:before,.official-divider:after{content:'';height:1px;background:#dce7f0;flex:1}
+.official-create{width:100%;border:1.5px solid #1689e8;background:#fff;color:#1689e8;border-radius:14px;padding:13px;font-weight:900;font-size:15px}
+.official-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid #edf1f5}
+.official-benefits div{text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px}
+.official-benefits svg{width:25px;height:25px;color:#1689e8;margin-bottom:2px}
+.official-benefits b{font-size:11px}
+.official-benefits small{font-size:9px;color:#718196}
+.official-footer{padding:20px 0 0;text-align:center;display:flex;flex-direction:column;gap:4px}
+.official-footer b{font-size:15px}
+.official-footer span{font-size:11px;color:#a9bfd4}
+@media(max-width:420px){
+  .official-auth-bg{padding:20px 12px}
+  .official-brand b{font-size:20px}
+  .official-hero{padding:24px 0 20px}
+  .official-hero h2{font-size:31px}
+  .official-login-card{padding:22px 16px 17px;border-radius:24px}
+  .official-login-card h1{font-size:29px}
+  .official-features div{padding:9px 3px}
+}
+
+/* KHUSHI HOMES - FINAL HOUSE LOGIN DESIGN */
+.official-auth{
+  min-height:100vh;
+  width:100%;
+  background:#062653;
+  color:#fff;
+}
+
+.official-auth-bg{
+  min-height:100vh;
+  padding:0 0 28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(3,22,49,.28),rgba(3,28,65,.88)),
+    url('/dashboard-reference/hero-house.jpg') center top/auto 520px no-repeat;
+}
+
+.official-auth-bg:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 20%,rgba(3,27,61,.48) 48%,#062653 78%);
+  pointer-events:none;
+}
+
+.official-brand,
+.official-hero,
+.official-login-card,
+.official-footer{
+  position:relative;
+  z-index:2;
+}
+
+.official-brand{
+  width:min(100%,900px);
+  padding:25px 22px 8px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.official-brand-logo{
+  width:64px;
+  height:64px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 25px #0005;
+}
+
+.official-brand-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.official-brand b{
+  font-size:27px;
+  letter-spacing:.02em;
+}
+
+.official-brand b strong{
+  color:#20a9f5;
+}
+
+.official-brand small{
+  display:block;
+  color:#d9e8f7;
+  margin-top:2px;
+  font-size:14px;
+}
+
+.official-hero{
+  width:min(100%,900px);
+  padding:38px 22px 34px;
+}
+
+.official-hero>span{
+  font-size:11px;
+  letter-spacing:.16em;
+  font-weight:900;
+  color:#58caff;
+}
+
+.official-hero h2{
+  font-size:clamp(36px,6vw,62px);
+  line-height:1.02;
+  margin:12px 0 32px;
+  letter-spacing:-.035em;
+  text-shadow:0 4px 18px #0006;
+}
+
+.official-hero h2 em{
+  font-style:normal;
+  color:#42c2ff;
+}
+
+.official-features{
+  display:grid;
+  grid-template-columns:repeat(4,110px);
+  gap:22px;
+}
+
+.official-features div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+}
+
+.official-features div:before{
+  content:"";
+  position:absolute;
+}
+
+.official-features svg{
+  width:60px;
+  height:60px;
+  padding:15px;
+  border-radius:50%;
+  color:#27b5ff;
+  background:#071d35cc;
+  border:1px solid #ffffff22;
+  box-shadow:0 8px 24px #0005;
+}
+
+.official-features b{
+  font-size:15px;
+  text-shadow:0 2px 7px #000;
+}
+
+.official-login-card{
+  width:min(calc(100% - 28px),900px);
+  background:#fff;
+  color:#102844;
+  border-radius:30px;
+  padding:38px 52px 28px;
+  box-shadow:0 25px 70px #0008;
+}
+
+.official-login-card h1{
+  text-align:center;
+  font-size:clamp(34px,5vw,52px);
+  margin:0;
+  color:#082650;
+}
+
+.official-login-card>p{
+  text-align:center;
+  color:#718196;
+  margin:7px 0 25px;
+  font-size:19px;
+}
+
+.official-field{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:1px solid #cbdbea;
+  border-radius:18px;
+  background:#f7fbff;
+  margin:13px 0;
+  padding:0 18px;
+  box-shadow:0 3px 10px #0a315c0b;
+}
+
+.official-field>span{
+  font-size:25px;
+  color:#52677e;
+}
+
+.official-field input{
+  border:0!important;
+  background:transparent!important;
+  margin:0!important;
+  padding:18px 3px!important;
+  outline:none;
+  font-size:18px;
+}
+
+.official-signin{
+  width:100%;
+  border:0;
+  border-radius:18px;
+  background:linear-gradient(100deg,#1597ed,#0879d8);
+  color:#fff;
+  padding:18px;
+  font-size:21px;
+  font-weight:900;
+  margin-top:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  box-shadow:0 10px 28px #1689e855;
+}
+
+.official-forgot{
+  width:100%;
+  border:0;
+  background:none;
+  color:#1689e8;
+  font-size:18px;
+  font-weight:800;
+  padding:16px;
+}
+
+.official-divider{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:#718196;
+  margin:5px 0 16px;
+}
+
+.official-divider:before,
+.official-divider:after{
+  content:'';
+  height:1px;
+  background:#dce7f0;
+  flex:1;
+}
+
+.official-create{
+  width:100%;
+  border:2px solid #1689e8;
+  background:#fff;
+  color:#1689e8;
+  border-radius:18px;
+  padding:16px;
+  font-weight:900;
+  font-size:19px;
+}
+
+.official-benefits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid #e4ebf1;
+}
+
+.official-benefits div{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+}
+
+.official-benefits svg{
+  width:35px;
+  height:35px;
+  color:#1689e8;
+  margin-bottom:3px;
+}
+
+.official-benefits b{
+  font-size:15px;
+}
+
+.official-benefits small{
+  font-size:12px;
+  color:#718196;
+}
+
+.official-footer{
+  padding:22px 0 0;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.official-footer b{
+  font-size:17px;
+}
+
+.official-footer span{
+  font-size:12px;
+  color:#b9cee2;
+}
+
+@media(max-width:600px){
+  .official-brand{
+    padding:18px 14px 4px;
+  }
+
+  .official-brand-logo{
+    width:52px;
+    height:52px;
+  }
+
+  .official-brand b{
+    font-size:19px;
+  }
+
+  .official-brand small{
+    font-size:10px;
+  }
+
+  .official-hero{
+    padding:28px 14px 22px;
+  }
+
+  .official-hero h2{
+    font-size:34px;
+    margin-bottom:24px;
+  }
+
+  .official-features{
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
+  }
+
+  .official-features svg{
+    width:52px;
+    height:52px;
+    padding:13px;
+  }
+
+  .official-features b{
+    font-size:10px;
+  }
+
+  .official-login-card{
+    width:calc(100% - 24px);
+    padding:25px 15px 20px;
+    border-radius:25px;
+  }
+
+  .official-login-card h1{
+    font-size:30px;
+  }
+
+  .official-login-card>p{
+    font-size:13px;
+  }
+
+  .official-field input{
+    font-size:14px;
+    padding:15px 3px!important;
+  }
+
+  .official-signin{
+    font-size:17px;
+    padding:15px;
+  }
+
+  .official-create{
+    font-size:15px;
+  }
+
+  .official-benefits{
+    gap:5px;
+  }
+
+  .official-benefits b{
+    font-size:10px;
+  }
+
+  .official-benefits small{
+    font-size:8px;
+  }
+}
