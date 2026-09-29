@@ -5360,3 +5360,262 @@ body:has(.landing),
 .settings-list .setting-row .setting-photo + div{
   min-width:0;
 }
+
+/* Official KHUSHI HOMES My Profile */
+.official-profile-card{
+  display:block;
+  padding:14px;
+}
+
+.profile-hero{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:18px;
+  border-radius:18px;
+  background:linear-gradient(110deg,#edf8ff,#f7fbff);
+  border:1px solid #e0edf6;
+}
+
+.official-profile-photo{
+  position:relative;
+  flex:0 0 92px;
+}
+
+.official-profile-photo .profile-photo,
+.official-profile-photo .profile-photo.placeholder{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  border:4px solid #fff;
+  box-shadow:0 5px 18px #173c5b18;
+}
+
+.profile-camera-button{
+  position:absolute;
+  right:-2px;
+  bottom:0;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#1689e8;
+  color:#fff!important;
+  display:grid!important;
+  place-items:center;
+  padding:0!important;
+  margin:0!important;
+  border:3px solid #fff;
+  cursor:pointer;
+}
+
+.profile-camera-button input{
+  display:none;
+}
+
+.profile-identity h2{
+  margin:0;
+  font-size:22px;
+  color:#102844;
+}
+
+.profile-identity p{
+  margin:4px 0 9px;
+  color:#738298;
+  font-size:12px;
+}
+
+.profile-active{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#eaf9ef;
+  color:#159451;
+  font-size:11px;
+  font-weight:900;
+}
+
+.profile-active i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#20b85a;
+}
+
+.profile-information{
+  padding:18px 4px 6px;
+}
+
+.profile-section-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.profile-section-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#edf7ff;
+  color:#1689e8;
+}
+
+.profile-section-title h3{
+  margin:0;
+  font-size:17px;
+}
+
+.profile-section-title p{
+  margin:3px 0 0;
+  color:#738298;
+  font-size:11px;
+}
+
+.profile-information label{
+  display:grid;
+  gap:6px;
+  margin:11px 0;
+  color:#53677d;
+  font-size:11px;
+  font-weight:800;
+}
+
+.profile-information input{
+  font-size:14px;
+  padding:12px;
+}
+
+.official-save-profile{
+  margin-top:14px;
+}
+
+.official-referral-card{
+  margin-top:12px;
+  padding:16px;
+  background:linear-gradient(145deg,#f5fff7,#ffffff);
+}
+
+.referral-heading{
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+
+.referral-icon{
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#e9f9ed;
+  color:#159451;
+}
+
+.referral-heading h3{
+  margin:0;
+  font-size:17px;
+}
+
+.referral-heading p{
+  margin:5px 0 12px;
+  color:#738298;
+  font-size:11px;
+  line-height:1.45;
+}
+
+.official-referral-card label{
+  display:grid;
+  gap:6px;
+  color:#53677d;
+  font-size:11px;
+  font-weight:800;
+}
+
+.referral-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:11px;
+}
+
+.referral-stats>div{
+  text-align:center;
+  padding:11px;
+  border-radius:13px;
+  background:#eef7ff;
+}
+
+.referral-stats b{
+  display:block;
+  font-size:20px;
+  color:#1689e8;
+}
+
+.referral-stats small{
+  color:#738298;
+  font-size:10px;
+}
+
+.official-account-action,
+.official-delete-action{
+  width:100%;
+  margin-top:10px;
+  display:grid!important;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  text-align:left;
+  gap:11px;
+  padding:13px 15px!important;
+}
+
+.official-account-action span,
+.official-delete-action span{
+  display:grid;
+  gap:3px;
+}
+
+.official-account-action small,
+.official-delete-action small{
+  color:#738298;
+  font-size:10px;
+}
+
+.official-account-action strong,
+.official-delete-action strong{
+  font-size:22px;
+}
+
+.official-delete-action{
+  color:#d93645!important;
+  background:#fff3f4!important;
+  border-color:#f5d1d5!important;
+}
+
+.official-delete-action small{
+  color:#b65a63;
+}
+
+@media(max-width:520px){
+  .profile-hero{
+    padding:15px;
+    gap:13px;
+  }
+
+  .official-profile-photo,
+  .official-profile-photo .profile-photo,
+  .official-profile-photo .profile-photo.placeholder{
+    width:78px;
+    height:78px;
+    flex-basis:78px;
+  }
+
+  .profile-identity h2{
+    font-size:19px;
+  }
+}
+

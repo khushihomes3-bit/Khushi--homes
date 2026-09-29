@@ -277,7 +277,96 @@ onClick={()=>setNewDevice(v=>({...v,connectionType:c}))}>
 
     {page==='payment-history'&&<section><PageHead title="Payment History" subtitle="Your KHUSHI HOMES subscription payment records." back={()=>setPage('subscriptions')}/>{paymentHistory.length?<div className="history-list">{paymentHistory.map(p=><article className="card payment-history-row" key={p.id}>{p.status==='Success'?<CircleCheck className="success-icon"/>:<CircleX className="failed-icon"/>}<div><b>{p.planName}</b><small>{p.method} • ₹{p.amount} • {new Date(p.date).toLocaleString('en-IN')}</small><small>{p.paymentId?'Payment ID: '+p.paymentId:'Payment not completed'}</small></div><strong>{p.status}</strong></article>)}</div>:<div className="card"><History size={34}/><h3>No payment history yet</h3><p className="muted">Completed and failed payment attempts will appear here.</p></div>}</section>}
 
-    {page==='profile'&&<section><PageHead title="My Profile" subtitle="Manage your KHUSHI HOMES customer profile." back={()=>setPage('home')}/><div className="profile-card card"><div className="profile-photo-wrap">{profile.photo?<img className="profile-photo" src={profile.photo} alt="Profile"/>:<div className="profile-photo placeholder"><UserCircle size={54}/></div>}<label className="photo-button">Change photo<input type="file" accept="image/*" onChange={onProfilePhoto}/></label></div><div className="profile-form"><label>Name<input value={profile.name} onChange={e=>setProfile({...profile,name:e.target.value})}/></label><label>Mobile number<input value={profile.mobile} onChange={e=>setProfile({...profile,mobile:e.target.value})} placeholder="Enter mobile number"/></label><label>Email<input value={session.email||''} readOnly/></label><button className="wide" onClick={saveProfile}><Save size={16}/> Save Profile</button><div className="card" style={{marginTop:16}}><h3>Referral & Rewards</h3><p className="muted">Share your referral code. A reward is earned only when the referred user completes a successful 1-year plan recharge.</p><label>Your referral code<input readOnly value={referral.code||'Generating...'} /></label><button className="wide" onClick={()=>{const link=window.location.origin+'/app?ref='+encodeURIComponent(referral.code);navigator.clipboard?.writeText(link);setAppMessage('Referral link copied.');}}>Share referral link</button><small>{referral.referralCount} referral{referral.referralCount===1?'':'s'} • {referral.rewardedCount} reward{referral.rewardedCount===1?'':'s'} earned</small></div><button className="profile-logout" onClick={()=>void signOut(auth)}><LogOut size={16}/> Sign out</button><button className="profile-logout" onClick={()=>void deleteAccount()}><Trash2 size={16}/> Delete Account</button></div></div></section>}
+    {page==='profile'&&<section>
+<PageHead title="My Profile" subtitle="Manage your KHUSHI HOMES customer profile." back={()=>setPage('home')}/>
+
+<div className="profile-card official-profile-card card">
+
+  <div className="profile-hero">
+    <div className="profile-photo-wrap official-profile-photo">
+      {profile.photo
+        ? <img className="profile-photo" src={profile.photo} alt="Profile"/>
+        : <div className="profile-photo placeholder"><UserCircle size={54}/></div>}
+      <label className="profile-camera-button" aria-label="Change profile photo">
+        <Camera size={17}/>
+        <input type="file" accept="image/*" onChange={onProfilePhoto}/>
+      </label>
+    </div>
+
+    <div className="profile-identity">
+      <h2>{profile.name||'KHUSHI HOMES Customer'}</h2>
+      <p>KHUSHI HOMES Customer</p>
+      <span className="profile-active"><i/> Active Account</span>
+    </div>
+  </div>
+
+  <div className="profile-information">
+    <div className="profile-section-title">
+      <div className="profile-section-icon"><UserCircle size={22}/></div>
+      <div>
+        <h3>Personal Information</h3>
+        <p>Keep your account details up to date.</p>
+      </div>
+    </div>
+
+    <label>Name
+      <input value={profile.name} onChange={e=>setProfile({...profile,name:e.target.value})} placeholder="Enter your name"/>
+    </label>
+
+    <label>Mobile number
+      <input value={profile.mobile} onChange={e=>setProfile({...profile,mobile:e.target.value})} placeholder="Enter mobile number"/>
+    </label>
+
+    <label>Email
+      <input value={session.email||''} readOnly/>
+    </label>
+
+    <button className="wide official-save-profile" onClick={saveProfile}>
+      <Save size={17}/> Save Profile
+    </button>
+  </div>
+
+  <div className="card official-referral-card">
+    <div className="referral-heading">
+      <div className="referral-icon"><ShieldCheck size={24}/></div>
+      <div>
+        <h3>Referral & Rewards</h3>
+        <p>Share your referral code and earn rewards when the referred user completes a successful 1-year plan recharge.</p>
+      </div>
+    </div>
+
+    <label>Your referral code
+      <input readOnly value={referral.code||'Generating...'}/>
+    </label>
+
+    <button className="wide" onClick={()=>{
+      const link=window.location.origin+'/app?ref='+encodeURIComponent(referral.code);
+      navigator.clipboard?.writeText(link);
+      setAppMessage('Referral link copied.');
+    }}>
+      Share referral link
+    </button>
+
+    <div className="referral-stats">
+      <div><b>{referral.referralCount}</b><small>Total Referrals</small></div>
+      <div><b>{referral.rewardedCount}</b><small>Rewards Earned</small></div>
+    </div>
+  </div>
+
+  <button className="profile-logout official-account-action" onClick={()=>void signOut(auth)}>
+    <LogOut size={17}/>
+    <span><b>Sign out</b><small>Sign out from your account</small></span>
+    <strong>›</strong>
+  </button>
+
+  <button className="profile-logout official-delete-action" onClick={()=>void deleteAccount()}>
+    <Trash2 size={17}/>
+    <span><b>Delete Account</b><small>Permanently delete your account</small></span>
+    <strong>›</strong>
+  </button>
+
+</div>
+</section>}
 
     {page==='notifications'&&<section><PageHead title="Notifications" subtitle="Important Smart Home updates." back={()=>setPage('home')}/>{notificationsOn&&notifications.length?notifications.map((n,i)=><article className="card notification-card" key={i}><Bell/><div><b>Smart Home Recharge Reminder</b><p>{n}</p></div></article>):<div className="card"><h3>You're all set</h3><p className="muted">No Smart Home recharge reminders right now.</p></div>}</section>}
     {page==='support'&&<section><PageHead title="Khushi AI" subtitle="Ask about Smart Home, demo or quotation." back={()=>setPage('home')}/><div className="support-grid"><div className="card ai-card"><div className="chat">{aiMessages.map((m,i)=><div key={i} className={m.role}>{m.text}</div>)}</div><div className="chat-input"><input value={aiInput} onChange={e=>setAiInput(e.target.value)} onKeyDown={e=>{if(e.key==='Enter')void askAi()}} placeholder="Ask Khushi AI..."/><button onClick={()=>void askAi()} disabled={aiBusy}><Send size={16}/></button></div></div><div className="card"><h3>Demo / Quotation</h3>{['name','phone','address'].map(k=><label key={k}>{k[0].toUpperCase()+k.slice(1)}<input value={form[k as keyof typeof form]} onChange={e=>setForm({...form,[k]:e.target.value})}/></label>)}<label>Type<select value={form.type} onChange={e=>setForm({...form,type:e.target.value})}><option value="quotation">Quotation</option><option value="demo">Demo</option></select></label><label>Requirement<textarea value={form.requirement} onChange={e=>setForm({...form,requirement:e.target.value})}/></label><button className="wide" onClick={submitEnquiry}><Send size={16}/> Submit enquiry</button></div></div></section>}
