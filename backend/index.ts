@@ -83,6 +83,31 @@ async function appAction(event: any, body: any) {
     else await db.add('settings', [record]);
     return { saved: true };
   }
+  if (action === 'get_announcement') {
+    const { items } = await db.list<Record<string, unknown>>('settings', { limit: 50 });
+    const existing = items.find(x => x.key === 'announcement');
+    const value = existing?.value;
+    if (value && typeof value === 'object') return { announcement: value };
+    return { announcement: { message: '', enabled: false } };
+  }
+
+  if (action === 'save_announcement') {
+    if (!user.admin) throw new Error('Admin access required.');
+    const announcement = body?.announcement || {};
+    const record = {
+      key: 'announcement',
+      value: {
+        message: String(announcement.message || ''),
+        enabled: Boolean(announcement.enabled)
+      }
+    };
+    const { items } = await db.list<Record<string, unknown>>('settings', { limit: 50 });
+    const existing = items.find(x => x.key === 'announcement');
+    if (existing) await db.update('settings', [{ id: existing.id, record }]);
+    else await db.add('settings', [record]);
+    return { saved: true };
+  }
+
   if (action === 'save_enquiry') {
     const form = body?.form || {};
     const [id] = await db.add('enquiries', [{ ...form, userId: user.id, status: 'New', created_at: new Date().toISOString() }]);

@@ -6708,3 +6708,54 @@ body:has(.landing),
     font-size:8px;
   }
 }
+
+/* Admin Edit button - position fix only */
+.khushi-home-dashboard .khushi-welcome-header{
+  position:relative !important;
+}
+
+.khushi-home-dashboard .welcome-admin{
+  position:absolute !important;
+  right:64px !important;
+  top:0 !important;
+  width:auto !important;
+  min-width:100px !important;
+  height:54px !important;
+  padding:0 12px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:5px !important;
+  z-index:20 !important;
+  white-space:nowrap !important;
+}
+
+
+/* Festival / Recharge announcement */
+.khushi-announcement{
+  width:100%;
+  overflow:hidden;
+  margin:0 0 14px;
+  border-radius:12px;
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  padding:9px 0;
+  white-space:nowrap;
+}
+
+.khushi-announcement-track{
+  display:inline-flex;
+  gap:80px;
+  min-width:max-content;
+  animation:khushi-announcement-scroll 18s linear infinite;
+}
+
+.khushi-announcement-track span{
+  font-weight:600;
+  padding-left:20px;
+}
+
+@keyframes khushi-announcement-scroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
