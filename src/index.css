@@ -6759,3 +6759,89 @@ body:has(.landing),
   from{transform:translateX(0);}
   to{transform:translateX(-50%);}
 }
+
+/* Create Account button visibility fix only */
+.auth-form button[type="submit"]{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  position:relative !important;
+  z-index:10 !important;
+  margin-bottom:20px !important;
+}
+
+
+/* Login / Create Account compact layout */
+.official-login-card{
+  padding-top:28px !important;
+  padding-bottom:24px !important;
+}
+
+.official-login-card h1{
+  margin-bottom:8px !important;
+}
+
+.official-login-card > p{
+  margin-bottom:16px !important;
+}
+
+.official-field{
+  margin-bottom:12px !important;
+}
+
+.official-signin{
+  margin-top:12px !important;
+}
+
+
+/* Compact login screen - keep Create Account button visible */
+.official-auth-bg{
+  min-height:100vh !important;
+}
+
+.official-hero{
+  padding-top:18px !important;
+  padding-bottom:14px !important;
+}
+
+.official-hero h2{
+  margin:8px 0 16px !important;
+}
+
+.official-features{
+  transform:scale(.9);
+  transform-origin:top center;
+  margin-bottom:-18px !important;
+}
+
+.official-login-card{
+  margin-top:0 !important;
+  padding-top:22px !important;
+  padding-bottom:18px !important;
+}
+
+.official-login-card h1{
+  margin:0 0 6px !important;
+}
+
+.official-login-card > p{
+  margin:0 0 12px !important;
+}
+
+.official-field{
+  margin-bottom:9px !important;
+}
+
+.official-signin{
+  margin-top:8px !important;
+}
+
+
+/* Login screen - disable page scrolling */
+.official-auth,
+.official-auth-bg{
+  height:100vh !important;
+  min-height:100vh !important;
+  overflow:hidden !important;
+}
+
