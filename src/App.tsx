@@ -41,7 +41,7 @@ function App() {
   const [hardwareForm,setHardwareForm]=useState({name:'',connectionType:'Wi-Fi' as ConnectionType,deviceId:'',channelCount:4});
   const [selectedHardwareId,setSelectedHardwareId]=useState<number|null>(null);
   const [plans,setPlans]=useState<Plan[]>([]); const [subscription,setSubscription]=useState<{plan_code:string;expires_at:string}|null>(null);
-  const [notifications,setNotifications]=useState<string[]>([]); const [admin,setAdmin]=useState(false); const [enquiries,setEnquiries]=useState<Enquiry[]>([]); const [whatsapp,setWhatsapp]=useState('8431338440'); const [appMessage,setAppMessage]=useState('');
+  const [notifications,setNotifications]=useState<string[]>([]); const [admin,setAdmin]=useState(()=>((auth.currentUser?.email||'').trim().toLowerCase()===ADMIN_EMAIL.toLowerCase())); const [enquiries,setEnquiries]=useState<Enquiry[]>([]); const [whatsapp,setWhatsapp]=useState('8431338440'); const [appMessage,setAppMessage]=useState('');
   const [aiInput,setAiInput]=useState(''); const [aiBusy,setAiBusy]=useState(false); const [aiMessages,setAiMessages]=useState<{role:'user'|'assistant';text:string}[]>([{role:'assistant',text:'Hi! I am Khushi AI. Ask me about KHUSHI HOMES Smart Home, demo or quotation.'}]);
   const [form,setForm]=useState({name:'',phone:'',address:'',requirement:'',type:'quotation'});
   const [editingPlan,setEditingPlan]=useState<string|null>(null); const [planDraft,setPlanDraft]=useState<Plan|null>(null);
@@ -57,7 +57,13 @@ function App() {
   const subscriptionExpired=Boolean(subscription&&new Date(subscription.expires_at).getTime()<=Date.now());
   const directAppEntry=window.location.pathname.endsWith('/app')||new URLSearchParams(window.location.search).get('entry')==='1';
 
-  useEffect(()=>{const unsub=onAuthStateChanged(auth,setSession);return()=>unsub();},[]);
+  useEffect(()=>{
+  const unsub=onAuthStateChanged(auth,user=>{
+    setSession(user);
+    setAdmin((user?.email||'').trim().toLowerCase()===ADMIN_EMAIL.toLowerCase());
+  });
+  return()=>unsub();
+},[]);
   useEffect(()=>{if(!session)return;loadPlans();loadProfile();try{const d=JSON.parse(localStorage.getItem('khushi-data-'+session.uid)||'{}');if(d.devices)setDevices(d.devices);if(Array.isArray(d.hardwareControllers))setHardwareControllers(d.hardwareControllers);if(d.schedules)setSchedules(d.schedules);if(d.profile)setProfile({...{name:'',photo:'',mobile:''},...d.profile});if(typeof d.notificationsOn==='boolean')setNotificationsOn(d.notificationsOn);if(typeof d.securityOn==='boolean')setSecurityOn(d.securityOn);if(typeof d.parkingOn==='boolean')setParkingOn(d.parkingOn);if(typeof d.cameraSetup==='boolean')setCameraSetup(d.cameraSetup);if(d.cameraConfig)setCameraConfig({...{name:'',host:'',rtsp:'',onvif:''},...d.cameraConfig});if(Number.isFinite(d.energyKwh))setEnergyKwh(d.energyKwh);if(Array.isArray(d.paymentHistory))setPaymentHistory(d.paymentHistory);}catch{setProfile({name:String(session.user_metadata?.name||''),photo:'',mobile:session.phone||''});}},[session]);
   useEffect(()=>{if(!session)return;localStorage.setItem('khushi-data-'+session.uid,JSON.stringify({devices,hardwareControllers,schedules,profile,notificationsOn,securityOn,parkingOn,cameraSetup,cameraConfig,energyKwh,paymentHistory}));},[session,devices,schedules,profile,notificationsOn,securityOn,parkingOn,cameraSetup,cameraConfig,energyKwh,paymentHistory]);
   useEffect(()=>{if(!session)return;const active=devices.filter(d=>d.on).length;if(!active)return;const timer=window.setInterval(()=>setEnergyKwh(v=>Number((v+active*0.0002).toFixed(3))),60000);return()=>window.clearInterval(timer);},[session,devices]);
