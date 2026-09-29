@@ -5678,3 +5678,612 @@ body:has(.landing),
   object-fit:cover;
 }
 
+
+/* KHUSHI HOMES - Official Subscription UI */
+.official-subscription-page{
+  max-width:900px;
+  margin:auto;
+  padding-bottom:25px;
+}
+
+.subscription-hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin:8px 0 14px;
+  padding:20px 22px;
+  border-radius:22px;
+  background:linear-gradient(110deg,#e7f7ff,#f3fbff);
+  border:1px solid #d7ebf7;
+  overflow:hidden;
+}
+
+.subscription-hero span{
+  color:#1689e8;
+  font-weight:900;
+  font-size:14px;
+}
+
+.subscription-hero h2{
+  margin:3px 0 5px;
+  font-size:27px;
+  color:#102844;
+}
+
+.subscription-hero p{
+  margin:0;
+  color:#738298;
+  line-height:1.45;
+}
+
+.subscription-hero-art{
+  width:115px;
+  height:95px;
+  border-radius:25px;
+  display:grid;
+  place-items:center;
+  font-size:55px;
+  background:linear-gradient(145deg,#d5efff,#e7f8ee);
+}
+
+.official-active-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border-radius:19px;
+  background:linear-gradient(105deg,#edf9f1,#f8fcf9);
+  border:1px solid #ccebd7;
+  margin-bottom:13px;
+}
+
+.active-icon{
+  width:47px;
+  height:47px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:#dff5e7;
+  color:#159451;
+}
+
+.active-info{
+  flex:1;
+}
+
+.active-info b,
+.active-info small,
+.active-info span{
+  display:block;
+}
+
+.active-info b{
+  color:#167840;
+  font-size:15px;
+}
+
+.active-info small{
+  color:#738298;
+  margin-top:3px;
+}
+
+.active-info span{
+  color:#53677d;
+  font-size:12px;
+  margin-top:4px;
+  font-weight:800;
+}
+
+.official-active-card>strong{
+  color:#167840;
+  background:#dff5e7;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:10px;
+}
+
+.active-arrow{
+  color:#8aa095;
+  font-size:23px;
+}
+
+.official-benefits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:13px 0;
+}
+
+.official-benefits>div{
+  min-height:76px;
+  border:1px solid #dceaf3;
+  border-radius:17px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  text-align:left;
+  box-shadow:0 6px 18px #234b7008;
+}
+
+.official-benefits span{
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:#edf7ff;
+  color:#1689e8;
+  display:grid;
+  place-items:center;
+  font-size:20px;
+  font-weight:900;
+}
+
+.official-benefits b{
+  font-size:11px;
+  line-height:1.25;
+  color:#53677d;
+}
+
+.official-plans{
+  display:grid;
+  gap:12px;
+}
+
+.official-plan{
+  position:relative;
+  display:grid;
+  grid-template-columns:145px 1fr 155px;
+  align-items:center;
+  gap:15px;
+  min-height:130px;
+  padding:13px;
+  background:#fff;
+  border:1px solid #dce7f0;
+  border-radius:20px;
+  box-shadow:0 8px 24px #234b7008;
+  overflow:hidden;
+}
+
+.official-plan-side{
+  align-self:stretch;
+  position:relative;
+  padding:15px;
+  border-radius:15px;
+  background:#edf8ff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.official-plan:nth-child(2) .official-plan-side{
+  background:#fff7e8;
+}
+
+.official-plan:nth-child(3) .official-plan-side{
+  background:#eef9f1;
+}
+
+.official-plan-side>b{
+  font-size:12px;
+  color:#1689e8;
+  font-weight:900;
+}
+
+.official-plan:nth-child(2) .official-plan-side>b{
+  color:#d78a18;
+}
+
+.official-plan:nth-child(3) .official-plan-side>b{
+  color:#159451;
+}
+
+.official-plan-side small{
+  color:#738298;
+  font-size:10px;
+  line-height:1.35;
+  margin-top:5px;
+}
+
+.calendar-mark{
+  position:absolute;
+  right:9px;
+  bottom:7px;
+  opacity:.12;
+  font-size:27px;
+}
+
+.official-plan-main h2{
+  margin:0 0 5px;
+  font-size:21px;
+  color:#102844;
+}
+
+.official-price{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+}
+
+.official-price span{
+  text-decoration:line-through;
+  color:#8492a3;
+  font-size:14px;
+}
+
+.official-price strong{
+  color:#1689e8;
+  font-size:28px;
+}
+
+.official-plan-main em{
+  display:inline-block;
+  margin-top:4px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#e5f7eb;
+  color:#168044;
+  font-size:9px;
+  font-style:normal;
+  font-weight:900;
+}
+
+.official-pay-button{
+  min-height:47px;
+  border:0;
+  border-radius:14px;
+  background:#1689e8;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-weight:900;
+  font-size:12px;
+  box-shadow:0 7px 15px #1689e826;
+}
+
+.official-pay-button span{
+  font-size:21px;
+  line-height:1;
+}
+
+.official-pay-button:disabled{
+  background:#aeb9c5;
+  box-shadow:none;
+}
+
+.best-value{
+  position:absolute;
+  top:0;
+  right:0;
+  padding:5px 10px;
+  border-radius:0 0 0 12px;
+  background:#159451;
+  color:#fff;
+  font-size:8px;
+  font-weight:900;
+  z-index:2;
+}
+
+.year-plan{
+  border-color:#bfe5ca;
+  background:linear-gradient(105deg,#fff,#fbfffc);
+}
+
+.official-history-button{
+  width:100%;
+  margin-top:13px;
+  padding:13px;
+  border:1px solid #dce7f0;
+  border-radius:17px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-align:left;
+  color:#102844;
+  box-shadow:0 6px 18px #234b7008;
+}
+
+.official-history-button>span{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:#edf7ff;
+  color:#1689e8;
+}
+
+.official-history-button div{
+  flex:1;
+}
+
+.official-history-button b,
+.official-history-button small{
+  display:block;
+}
+
+.official-history-button small{
+  color:#738298;
+  margin-top:3px;
+  font-size:10px;
+}
+
+.official-history-button>strong{
+  color:#8a9aab;
+  font-size:23px;
+}
+
+@media(max-width:650px){
+  .subscription-hero{
+    padding:17px;
+  }
+
+  .subscription-hero-art{
+    width:85px;
+    height:75px;
+    font-size:42px;
+  }
+
+  .subscription-hero h2{
+    font-size:23px;
+  }
+
+  .official-plan{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:11px;
+  }
+
+  .official-plan-side{
+    min-height:70px;
+  }
+
+  .official-plan-main{
+    padding:2px 5px;
+  }
+
+  .official-pay-button{
+    width:100%;
+  }
+
+  .official-benefits>div{
+    min-height:72px;
+    gap:5px;
+    padding:7px 4px;
+  }
+
+  .official-benefits b{
+    font-size:9px;
+  }
+
+  .official-benefits span{
+    width:30px;
+    height:30px;
+  }
+}
+
+/* Subscription page - mobile official sizing */
+@media (max-width:650px){
+
+  .official-subscription-page{
+    width:100%;
+    padding:0 4px 115px;
+  }
+
+  .official-subscription-page .page-head{
+    margin:20px 2px 16px;
+  }
+
+  .official-subscription-page .page-head h1{
+    font-size:32px;
+    line-height:1.08;
+    font-weight:900;
+    color:#102844;
+  }
+
+  .official-subscription-page .page-head p{
+    font-size:15px;
+    line-height:1.4;
+    margin-top:7px;
+  }
+
+  .official-subscription-page .eyebrow{
+    font-size:12px;
+    letter-spacing:.14em;
+  }
+
+  .subscription-hero{
+    min-height:145px;
+    padding:20px;
+    border-radius:22px;
+  }
+
+  .subscription-hero span{
+    font-size:14px;
+  }
+
+  .subscription-hero h2{
+    font-size:28px;
+    margin:4px 0 7px;
+  }
+
+  .subscription-hero p{
+    font-size:14px;
+  }
+
+  .subscription-hero-art{
+    width:105px;
+    height:92px;
+    font-size:50px;
+    flex:none;
+  }
+
+  .official-active-card{
+    min-height:105px;
+    padding:16px;
+    gap:12px;
+    border-radius:20px;
+  }
+
+  .active-icon{
+    width:48px;
+    height:48px;
+    flex:none;
+  }
+
+  .active-info b{
+    font-size:16px;
+  }
+
+  .active-info small{
+    font-size:12px;
+  }
+
+  .active-info span{
+    font-size:12px;
+  }
+
+  .official-active-card>strong{
+    font-size:10px;
+    padding:8px 11px;
+  }
+
+  .official-benefits{
+    gap:8px;
+    margin:14px 0;
+  }
+
+  .official-benefits>div{
+    min-height:88px;
+    flex-direction:column;
+    gap:5px;
+    padding:9px 5px;
+    border-radius:17px;
+  }
+
+  .official-benefits span{
+    width:36px;
+    height:36px;
+    font-size:20px;
+  }
+
+  .official-benefits b{
+    font-size:10px;
+    text-align:center;
+  }
+
+  .official-plans{
+    gap:14px;
+  }
+
+  .official-plan{
+    min-height:190px;
+    display:grid;
+    grid-template-columns:115px 1fr;
+    gap:12px;
+    padding:12px;
+    border-radius:21px;
+  }
+
+  .official-plan-side{
+    min-height:165px;
+    padding:14px;
+    border-radius:16px;
+  }
+
+  .official-plan-side>b{
+    font-size:13px;
+  }
+
+  .official-plan-side small{
+    font-size:11px;
+    line-height:1.4;
+  }
+
+  .official-plan-main{
+    align-self:center;
+  }
+
+  .official-plan-main h2{
+    font-size:24px;
+    margin-bottom:7px;
+  }
+
+  .official-price{
+    gap:8px;
+  }
+
+  .official-price span{
+    font-size:17px;
+  }
+
+  .official-price strong{
+    font-size:32px;
+  }
+
+  .official-plan-main em{
+    font-size:10px;
+    padding:5px 9px;
+    margin-top:6px;
+  }
+
+  .official-pay-button{
+    grid-column:1/-1;
+    min-height:52px;
+    font-size:15px;
+    border-radius:14px;
+  }
+
+  .official-pay-button span{
+    font-size:22px;
+  }
+
+  .best-value{
+    font-size:9px;
+    padding:6px 10px;
+  }
+
+  .official-history-button{
+    min-height:70px;
+    padding:12px 14px;
+    border-radius:18px;
+  }
+
+  .official-history-button>span{
+    width:43px;
+    height:43px;
+  }
+
+  .official-history-button b{
+    font-size:14px;
+  }
+
+  .official-history-button small{
+    font-size:10px;
+  }
+}
+
+@media (max-width:390px){
+  .subscription-hero-art{
+    width:82px;
+    height:76px;
+    font-size:40px;
+  }
+
+  .subscription-hero h2{
+    font-size:24px;
+  }
+
+  .official-plan{
+    grid-template-columns:105px 1fr;
+  }
+
+  .official-price strong{
+    font-size:29px;
+  }
+}
+

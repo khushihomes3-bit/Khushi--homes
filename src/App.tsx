@@ -273,7 +273,71 @@ onClick={()=>setNewDevice(v=>({...v,connectionType:c}))}>
     {page==='security'&&<section><PageHead title="Home Security" subtitle="Security controls and options for your home." back={()=>setPage('home')}/><div className="card feature-card"><LockKeyhole size={42}/><h2>Home Security</h2><p className="muted">Choose the security action you want to use.</p><div className="button-row"><button className="wide" onClick={()=>setSecurityOn(true)}>Arm Home</button><button className="wide" onClick={()=>setSecurityOn(false)}>Disarm Home</button></div><div className="settings-list"><div className="card setting-row"><ShieldCheck/><div><b>Security Mode</b><small>{securityOn?'Armed':'Disarmed'}</small></div><span className="status-chip">{securityOn?'ON':'OFF'}</span></div><div className="card setting-row"><Bot/><div><b>Security Robo</b><small>Open robot control</small></div><button onClick={()=>setPage('robot')}>OPEN</button></div><div className="card setting-row"><Camera/><div><b>Camera Setup</b><small>Open camera connection settings</small></div><button onClick={()=>setPage('camera')}>OPEN</button></div></div></div></section>}
     {page==='parking'&&<section><PageHead title="Parking" subtitle="Parking status." back={()=>setPage('home')}/><div className="card feature-card"><ParkingSquare size={42}/><h2>Parking</h2><p className="muted">Manage parking status.</p><button className="wide" onClick={()=>setParkingOn(v=>!v)}>{parkingOn?'Parking Active':'Parking Inactive'}</button></div></section>}
 
-    {page==='subscriptions'&&<section><PageHead title="Subscription & Payment" subtitle="Choose 28 Days, 84 Days or 365 Days Smart Home access." back={()=>setPage('home')}/><div className="card payment-method-card"><div className="payment-title"><CreditCard/><div><b>Payment Options</b><small>Choose a method before opening Razorpay Checkout.</small></div></div><div className="payment-methods"><button className={paymentMethod==='UPI'?'selected':''} onClick={()=>setPaymentMethod('UPI')}><QrCode/><span>UPI</span></button><button className={paymentMethod==='Card'?'selected':''} onClick={()=>setPaymentMethod('Card')}><CreditCard/><span>Card</span></button><button className={paymentMethod==='Net Banking'?'selected':''} onClick={()=>setPaymentMethod('Net Banking')}><Building2/><span>Net Banking</span></button></div><button className="history-button" onClick={()=>setPage('payment-history')}><History size={17}/> Payment History ({paymentHistory.length})</button></div><div className="plan-grid">{plans.filter(p=>p.active&&['28D','84D','365D'].includes(p.code)).map(plan=><article className="plan card" key={plan.code}><span className="plan-badge">{plan.months===12?'1 YEAR':plan.months===1?'1 MONTH':plan.months+' MONTHS'}</span><h2>{plan.name}</h2><div className="price">{Number(plan.offer)>0?<><span className="original-price">₹{plan.amount}</span> ₹{plan.offer}</>:Number(plan.amount)>0?'₹'+plan.amount:'Set by Admin'}</div>{Number(plan.offer)>0&&<small>Special offer</small>}<button onClick={()=>startPayment(plan)} disabled={!Number(plan.payment_amount)}><WalletCards size={16}/> Pay with {paymentMethod}</button></article>)}</div>{subscription&&<div className="success-card"><ShieldCheck/> Active until {new Date(subscription.expires_at).toLocaleDateString('en-IN')}</div>}</section>}
+    {page==='subscriptions'&&<section className="official-subscription-page">
+<PageHead title="Subscription & Payment" subtitle="Keep your smart home always connected." back={()=>setPage('home')}/>
+
+<div className="subscription-hero">
+  <div>
+    <span>Smart Home</span>
+    <h2>Smarter Living</h2>
+    <p>Control your home devices<br/>anytime, anywhere.</p>
+  </div>
+  <div className="subscription-hero-art">🏠</div>
+</div>
+
+{subscription&&
+<div className="official-active-card">
+  <div className="active-icon"><ShieldCheck size={25}/></div>
+  <div className="active-info">
+    <b>Active Subscription</b>
+    <small>Active until {new Date(subscription.expires_at).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})}</small>
+    <span>365 Days Plan</span>
+  </div>
+  <strong>ACTIVE</strong>
+  <span className="active-arrow">›</span>
+</div>
+}
+
+<div className="official-benefits">
+  <div><span>◷</span><b>Reliable<br/>Connection</b></div>
+  <div><span>✓</span><b>Secure<br/>& Private</b></div>
+  <div><span>♧</span><b>24/7<br/>Support</b></div>
+</div>
+
+<div className="official-plans">
+{plans.filter(p=>p.active&&['28D','84D','365D'].includes(p.code)).map(plan=>{
+  const isYear=plan.code==='365D';
+  const label=plan.months===12?'1 YEAR':plan.months===1?'1 MONTH':plan.months+' MONTHS';
+  const description=plan.code==='28D'?'Perfect for short term use':plan.code==='84D'?'Great value for your home':'Best value for smart living';
+  return <article className={'official-plan '+(isYear?'year-plan':'')} key={plan.code}>
+    {isYear&&<span className="best-value">♛ BEST VALUE</span>}
+    <div className="official-plan-side">
+      <b>{label}</b>
+      <small>{description}</small>
+      <span className="calendar-mark">▣</span>
+    </div>
+    <div className="official-plan-main">
+      <h2>{plan.name}</h2>
+      <div className="official-price">
+        {Number(plan.offer)>0&&<span>₹{plan.amount}</span>}
+        <strong>{Number(plan.offer)>0?'₹'+plan.offer:Number(plan.amount)>0?'₹'+plan.amount:'Set by Admin'}</strong>
+      </div>
+      {Number(plan.offer)>0&&<em>SPECIAL OFFER</em>}
+    </div>
+    <button className="official-pay-button" onClick={()=>startPayment(plan)} disabled={!Number(plan.payment_amount)}>
+      <WalletCards size={17}/> Pay with UPI <span>›</span>
+    </button>
+  </article>
+})}
+</div>
+
+<button className="official-history-button" onClick={()=>setPage('payment-history')}>
+  <span><History size={20}/></span>
+  <div><b>Payment History ({paymentHistory.length})</b><small>View your past payments and invoices</small></div>
+  <strong>›</strong>
+</button>
+
+</section>}
 
     {page==='payment-history'&&<section><PageHead title="Payment History" subtitle="Your KHUSHI HOMES subscription payment records." back={()=>setPage('subscriptions')}/>{paymentHistory.length?<div className="history-list">{paymentHistory.map(p=><article className="card payment-history-row" key={p.id}>{p.status==='Success'?<CircleCheck className="success-icon"/>:<CircleX className="failed-icon"/>}<div><b>{p.planName}</b><small>{p.method} • ₹{p.amount} • {new Date(p.date).toLocaleString('en-IN')}</small><small>{p.paymentId?'Payment ID: '+p.paymentId:'Payment not completed'}</small></div><strong>{p.status}</strong></article>)}</div>:<div className="card"><History size={34}/><h3>No payment history yet</h3><p className="muted">Completed and failed payment attempts will appear here.</p></div>}</section>}
 
