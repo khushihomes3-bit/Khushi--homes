@@ -1,22 +1,30 @@
 {
-  "name": "KHUSHI HOMES",
-  "short_name": "KHUSHI HOMES",
-  "start_url": "./app?entry=1",
+  "name": "Khushi Homes",
+  "short_name": "Khushi Homes",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "theme_color": "#1689e8",
   "icons": [
     {
-      "src": "./resources/khushi-homes-icon.png?v=2",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./resources/khushi-homes-icon.png?v=2",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
